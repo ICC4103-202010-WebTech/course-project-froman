@@ -8,7 +8,7 @@
 user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", mainRole: 0)
 user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love games", mainRole: 0)
 user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWolkie", email: "jbitt639@gmail.com", biography: "I love music", mainRole: 0)
-user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", mainRole: 0)
+user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", mainRole: 1)
 user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", mainRole: 0)
 user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", mainRole: 0)
 user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", mainRole: 0)
@@ -63,9 +63,13 @@ event2 = Event.new(creator: org2, name: "Grand Line Adventure",
                    description: "Get the One Piece", date: DateTime.now, privacy: 0)
 event2.save!
 
-event3 = Event.new(creator: user3, name: "DnD",
+event3 = Event.new(creator: user3, name: "Dungeons and Dragons",
                    description: "First sesion", date: DateTime.now, privacy: 1)
 event3.save!
+
+event4 = Event.new(creator: org2, name: "Sniper Training",
+                   description: "To become like the great sogeking", date: DateTime.now, privacy: 1)
+event4.save!
 ###EVENTS###
 
 ###INVITATIONS###
@@ -107,6 +111,12 @@ invit12.save!
 
 invit13 = Invitation.new(event: event3, user: user5)
 invit13.save!
+
+invit14 = Invitation.new(event: event4, user: user10)
+invit14.save!
+
+invit15 = Invitation.new(event: event4, user: user6)
+invit15.save!
 ###INVITATIONS###
 
 ###COMMENTS###
@@ -124,6 +134,9 @@ comment4.save!
 
 comment5 = Comment.new(event: event3, invitation: invit12, content: "Shotgun mage!")
 comment5.save!
+
+comment6 = Comment.new(event: event4, invitation: invit15, content: "He comes from the sniper's island~ (8)")
+comment6.save!
 ###COMMENTS###
 
 ###VOTES###
@@ -141,4 +154,7 @@ vote4.save!
 
 vote5 = Vote.new(event: event3, invitation: invit13, options: "1) Next Sunday / 2) Next Saturday", vote: 1)
 vote5.save!
+
+vote6 = Vote.new(event: event4, invitation: invit14, options: "1) Tomorrow / 2) Next Sunday", vote: 2)
+vote6.save!
 ###VOTES###
