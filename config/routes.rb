@@ -21,7 +21,6 @@ Rails.application.routes.draw do
       end
     end
     end
-  end
 
   resource :user do  #user has many events and has one org role
     resources :events, shallow: true
@@ -39,4 +38,4 @@ Rails.application.routes.draw do
     resources :invitations, :comments, :votes, shallow: true
     end
   end
-end
+
