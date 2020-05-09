@@ -9,7 +9,27 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
-    <%= yield %>
+  <header>
+    <h1><%= link_to "Events App", root_path %></h1>
+  </header>
+  <nav>
+    <ul id="navbar">
+      <li><%= link_to "Invitations", user_invitations_path(3) %></li>
+      <li><%= link_to "Created Events", user_events_path(3) %></li>
+      <li><%= link_to "Organization", user_organization_roles_path(3) %></li>
+      <li><%= link_to "All Users", users_url %></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <aside id="user_info">
+      <%= render partial: "users/user", object: @current_user %>
+    </aside>
+    <main id="main_content">
+      <%= yield %>
+    </main>
+  </div>
+
   </body>
 </html>

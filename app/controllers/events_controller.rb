@@ -4,12 +4,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where(creator_id: 3, creator_type: "User")
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.where(id: params[:id])
   end
 
   # GET /events/new

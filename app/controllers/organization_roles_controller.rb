@@ -4,7 +4,7 @@ class OrganizationRolesController < ApplicationController
   # GET /organization_roles
   # GET /organization_roles.json
   def index
-    @organization_roles = OrganizationRole.all
+    @organization_roles = OrganizationRole.where(user_id: params[:user_id])
   end
 
   # GET /organization_roles/1

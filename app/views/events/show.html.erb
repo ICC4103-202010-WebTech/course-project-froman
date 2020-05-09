@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% @event.each_with_index do |event| %>
+  <h3><%= event.name %></h3>
+<% end %>
+
+<table>
+  <thead>
+  <th>Description</th>
+  <th>Date</th>
+  </thead>
+  <tbody>
+  <% @event.each_with_index do |event| %>
+    <tr>
+      <td><%= event.description %></td>
+      <td><%= event.date %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back', root_path %>

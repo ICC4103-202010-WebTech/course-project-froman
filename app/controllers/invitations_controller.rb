@@ -4,7 +4,7 @@ class InvitationsController < ApplicationController
   # GET /invitations
   # GET /invitations.json
   def index
-    @invitations = Invitation.all
+    @invitations = Invitation.includes(:user, :event).where(user_id: params[:user_id])
   end
 
   # GET /invitations/1

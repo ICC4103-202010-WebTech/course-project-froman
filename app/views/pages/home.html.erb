@@ -1,0 +1,18 @@
+<h4>Upcoming Events</h4>
+
+<table>
+  <thead>
+  <th>N</th>
+  <th>Event</th>
+  <th>Date</th>
+  </thead>
+  <tbody>
+  <% @events.each_with_index do |event, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= link_to event.name, event %></td>
+      <td><%= event.date %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
