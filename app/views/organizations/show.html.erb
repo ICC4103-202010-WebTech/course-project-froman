@@ -1,4 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<% @organization.each_with_index do |organization| %>
+  <h3><%= organization.name %></h3>
+<% end %>
+
+<table>
+  <tbody>
+  <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
+    <li>Administrator: <%= link_to admin.user.username , user_path(admin.user.id) %></li>
+    <li>Description: <%= organization.description %></li>
+  <% end %><% end %>
+  </tbody>
+</table>
+
+<h4>Members</h4>
+<table>
+  <thead>
+  <th>Username</th>
+  <th>Role</th>
+  </thead>
+  <tbody>
+  <% @members.each_with_index do |member| %>
+    <tr>
+      <td><%= link_to member.user.username, user_path(member.user.id) %></td>
+      <td><%= member.role %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Back', :back %>

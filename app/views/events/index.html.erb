@@ -8,7 +8,7 @@
   <th>Date</th>
   </thead>
   <tbody>
-  <% @events.each_with_index do |event, i| %>
+  <% @events.each_with_index do |event| %>
     <tr>
       <td><%= link_to event.name, event %></td>
       <td><%= event.date %></td>
@@ -21,10 +21,10 @@
   </tbody>
 </table>
 
-
+<br>
 
 <%= link_to 'New Event', new_event_path %>
 
 <br><br>
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', :back %>

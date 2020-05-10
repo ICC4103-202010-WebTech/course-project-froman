@@ -10,6 +10,9 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @organization = Organization.where(id: params[:id])
+    @admin = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id], role: 1)
+    @members = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id])
   end
 
   # GET /organizations/new

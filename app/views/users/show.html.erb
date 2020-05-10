@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% @user.each_with_index do |user| %>
+  <h3><%= user.username %></h3>
+<% end %>
+
+<table>
+  <tbody>
+  <% @user.each_with_index do |user| %>
+    <li>Name: <%= user.name %> <%= user.lastName %></li>
+    <li>Mail: <%= user.email %></li>
+    <li>Biography: <%= user.biography %></li>
+    <li>Role: <%= user.mainRole %></li>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back', :back %>

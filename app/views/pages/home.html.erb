@@ -2,14 +2,12 @@
 
 <table>
   <thead>
-  <th>N</th>
   <th>Event</th>
   <th>Date</th>
   </thead>
   <tbody>
-  <% @events.each_with_index do |event, i| %>
+  <% @events.each_with_index do |event| %>
     <tr>
-      <td><%= i+1 %></td>
       <td><%= link_to event.name, event %></td>
       <td><%= event.date %></td>
     </tr>

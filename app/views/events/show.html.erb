@@ -5,18 +5,39 @@
 <% end %>
 
 <table>
-  <thead>
-  <th>Description</th>
-  <th>Date</th>
-  </thead>
   <tbody>
   <% @event.each_with_index do |event| %>
+    <li>Date: <%= event.date %></li>
+    <li>Description: <%= event.description %></li>
+  <% end %>
+  </tbody>
+</table>
+
+<h4>Voting Section</h4>
+<% @votes.each_with_index do |vote| %>
+  <tr>
+    <td><%= vote.options %></td>
+  </tr>
+<% end %>
+<br><br>
+<li>1) <%= @votes1 %></li>
+<li>2) <%= @votes2 %> </li>
+
+<h4>Comments Section</h4>
+<table>
+  <thead>
+  <th>User</th>
+  <th>Comment</th>
+  </thead>
+  <tbody>
+  <% @comments.each_with_index do |comment| %>
     <tr>
-      <td><%= event.description %></td>
-      <td><%= event.date %></td>
+      <td><%= link_to comment.username, user_path(comment.id) %></td>
+      <td><%= comment.content %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
 <br>
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', :back %>

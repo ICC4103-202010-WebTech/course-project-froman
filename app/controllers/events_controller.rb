@@ -11,6 +11,10 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.where(id: params[:id])
+    @votes = Vote.where(event_id: params[:id]).limit(1)
+    @votes1 = Vote.where(event_id: params[:id], vote: 1).count
+    @votes2 = Vote.where(event_id: params[:id], vote: 2).count
+    @comments = User.select('users.username, users.id, comments.content').joins(invitations: :comments).where(invitations: { event_id: params[:id] })
   end
 
   # GET /events/new
