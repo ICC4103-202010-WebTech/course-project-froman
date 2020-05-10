@@ -7,7 +7,7 @@
 <table>
   <tbody>
   <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
-    <li>Administrator: <%= link_to admin.user.username , user_path(admin.user.id) %></li>
+    <li>Moderator: <%= link_to admin.user.username , user_path(admin.user.id) %></li>
     <li>Description: <%= organization.description %></li>
   <% end %><% end %>
   </tbody>
@@ -23,7 +23,7 @@
   <% @members.each_with_index do |member| %>
     <tr>
       <td><%= link_to member.user.username, user_path(member.user.id) %></td>
-      <td><%= member.role %></td>
+      <td><% if member.role == 0 %> Normal <% else %> Moderator <% end %></td>
     </tr>
   <% end %>
   </tbody>

@@ -28,24 +28,20 @@ class API::V1::CommentsController < APIController
     @comment.event = Event.find(params[:event_id])
     @comment.invitation = Invitation.find(params[:invitation_id])
 
-    respond_to do |format|
-      if @comment.save
-        render :show, status: :created, location: @comment
-      else
-        render json: @comment.errors, status: :unprocessable_entity
-      end
+    if @comment.save
+      render :show, status: :created, location: @comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        render :show, status: :ok, location: api_v1_user_invitation_comments_path(@comment)
-      else
-        render json: @comment.errors, status: :unprocessable_entity
-      end
+    if @comment.update(comment_params)
+      render :show, status: :ok, location: api_v1_invitation_comments_path(@comment)
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
@@ -64,6 +60,6 @@ class API::V1::CommentsController < APIController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.fetch(:comment, {}).permit(:id, :event_id, :invitation_id)
+      params.fetch(:comment, {}).permit(:id, :event_id, :invitation_id, :content)
     end
 end

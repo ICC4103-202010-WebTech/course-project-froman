@@ -26,24 +26,20 @@ class API::V1::OrganizationsController < APIController
   def create
     @organization = Organization.new(organization_params)
 
-    respond_to do |format|
-      if @organization.save
-        render :show, status: :created, location: @organization
-      else
-        render json: @organization.errors, status: :unprocessable_entity
-      end
+    if @organization.save
+      render :show, status: :created, location: @organization
+    else
+      render json: @organization.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
-    respond_to do |format|
-      if @organization.update(organization_params)
-        render :show, status: :ok, location: api_v1_organizations_path(@organization)
-      else
-        render json: @organization.errors, status: :unprocessable_entity
-      end
+    if @organization.update(organization_params)
+      render :show, status: :ok, location: api_v1_organizations_path(@organization)
+    else
+      render json: @organization.errors, status: :unprocessable_entity
     end
   end
 

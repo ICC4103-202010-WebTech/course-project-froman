@@ -25,26 +25,21 @@ class API::V1::EventsController < APIController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    @event.user = User.find(params[:user_id])
 
-    respond_to do |format|
-      if @event.save
-        render :show, status: :created, location: @event
-      else
-        render json: @event.errors, status: :unprocessable_entity
-      end
+    if @event.save
+      render :show, status: :created, location: @event
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        render :show, status: :ok, location: api_v1_user_events_path(@event)
-      else
-        render json: @event.errors, status: :unprocessable_entity
-      end
+    if @event.update(event_params)
+      render :show, status: :ok, location: api_v1_user_events_path(@event)
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
   end
 
@@ -63,6 +58,6 @@ class API::V1::EventsController < APIController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:id, :creator_id, :creator_type, :name, :date, :privacy)
+      params.fetch(:event, {}).permit(:id, :creator_id, :creator_type, :name, :date, :privacy, :description)
     end
 end

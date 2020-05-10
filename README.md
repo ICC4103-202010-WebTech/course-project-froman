@@ -6,41 +6,28 @@
 
 Run "yarn install --check-files"
 
-The app comes with the migrations files already migrated, if you want to check this run 
-"rails db:rollback" and then "rails db:migrate".
+Run "bundle install"
 
-The "seeds.rb" file HAS NOT been executed. Before anything run "db:setup" to see that it works.
-
-
-INTEGER ATTRIBUTES MEANING
-
-users.role: 0 stands for a normal member, and 1 for an administrator.
-
-organization_roles.role: 0 stands for a normal member, and 1 for an  organization administrator.
-
-events.privacy: 0 stands for public, and 1 for private.
+Run "rails db:setup" to execute migrations and seeds file.
 
 
+--IMPLEMENTED FEATURES--
 
-MODEL LAYER FUNCTIONALITY AND BEHAVIOR
+First of all, as this is a "read only", the user that is supposed to be logged in the server
+is the one with "id: 3".
 
-1-10. All queries are in the "model_queries.rake" file. I hope they do what you asked in order to ease
-the evaluation process. To run all 10 queries at once, execute the "rake db:queries_demo" command.
 
-13. The dependency is already implemented to make a "cascade" effect by the "dependent: :destroy" 
-command. If an event is "destroyed", its guest list, which is represented as  "invitations", will be 
-destroyed as well, alongside every vote and comment posted by any user invited to the event.
+--PENDING FEATURES--
 
-14. As explained in the previous segment, this time if an organization is "destroyed", all its event
-will be destroyed as well, alongside all its components.
+Asd
 
-15. The model that connects Users with Organizations is the "Organization_role" model, which shows
-the role that the user has in an organization; 0 being a normal member and 1 being the administrator
-or organization creator. In this case, if an User who is a admin in an organization is "destroyed",
-his/hers organization won't be deleted. There is a reason to this, an organization admin should first
-manually delete an organization or give his admin rights to another organization member. This is 
-because being an org admin has a big responsability, it would not be wise that if a user deletes his 
-account, automatically his organizations with its communities should be destroyed as well.
+
+--POSTMAN--
+
+https://www.getpostman.com/collections/f2b3d5bc20e22df5e3a9
+
+It includes get/new/update/delete actions for events and comments in relation
+with the user that its supposed to be logged in.
 
 
 ~Felipe Román~

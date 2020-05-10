@@ -29,24 +29,20 @@ class API::V1::OrganizationRolesController < APIController
     @organization_role.organization = Organization.find(params[:organization_id])
 
 
-    respond_to do |format|
-      if @organization_role.save
-        render :show, status: :created, location: @organization_role
-      else
-        render json: @organization_role.errors, status: :unprocessable_entity
-      end
+    if @organization_role.save
+      render :show, status: :created, location: @organization_role
+    else
+      render json: @organization_role.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /organization_roles/1
   # PATCH/PUT /organization_roles/1.json
   def update
-    respond_to do |format|
-      if @organization_role.update(organization_role_params)
-        render :show, status: :ok, location: api_v1_organization_organization_roles_path(@organization_role)
-      else
-        render json: @organization_role.errors, status: :unprocessable_entity
-      end
+    if @organization_role.update(organization_role_params)
+      render :show, status: :ok, location: api_v1_organization_organization_roles_path(@organization_role)
+    else
+      render json: @organization_role.errors, status: :unprocessable_entity
     end
   end
 

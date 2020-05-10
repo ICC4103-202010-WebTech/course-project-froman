@@ -13,11 +13,11 @@
     <tr>
       <td><%= link_to organization_role.organization.name, organization_path(organization_role.organization_id) %></td>
       <td><%= link_to organization_role.user.username, user_path(organization_role.user_id) %></td>
-      <td><%= organization_role.role %></td>
+      <td><% if organization_role.role == 0%> Normal <% else %> Moderator <% end %></td>
       <th> | </th>
-      <td><%= link_to 'Edit', edit_organization_role_path(organization_role) %></td>
+      <!-- <td><%= link_to 'Edit', edit_organization_role_path(organization_role) %></td>
       <th> - </th>
-      <td><%= link_to 'Destroy', organization_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', organization_role, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
     </tr>
   <% end %>
   </tbody>

@@ -28,24 +28,20 @@ class API::V1::VotesController < APIController
     @vote.event = Event.find(params[:event_id])
     @vote.invitation = Invitation.find(params[:invitation_id])
 
-    respond_to do |format|
-      if @vote.save
-        render :show, status: :created, location: @vote
-      else
-        render json: @vote.errors, status: :unprocessable_entity
-      end
+    if @vote.save
+      render :show, status: :created, location: @vote
+    else
+      render json: @vote.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /votes/1
   # PATCH/PUT /votes/1.json
   def update
-    respond_to do |format|
-      if @vote.update(vote_params)
-        render :show, status: :ok, location: api_v1_user_invitation_votes_path(@vote)
-      else
-        render json: @vote.errors, status: :unprocessable_entity
-      end
+    if @vote.update(vote_params)
+      render :show, status: :ok, location: api_v1_user_invitation_votes_path(@vote)
+    else
+      render json: @vote.errors, status: :unprocessable_entity
     end
   end
 

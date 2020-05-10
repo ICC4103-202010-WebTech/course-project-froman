@@ -31,7 +31,7 @@
       <li>Mail: <%= User.third.email %> </li>
       <li>Name: <%= User.third.name %> <%= User.third.lastName %></li>
       <li>Biography: <%= User.third.biography %></li>
-      <li>Role: <%= User.third.mainRole %></li>
+      <li>Role: <% if User.third.mainRole == 0 %> Common <% else %> Administrator <% end %></li>
     </aside>
     <main id="main_content">
       <%= yield %>

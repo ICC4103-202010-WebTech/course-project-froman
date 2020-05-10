@@ -28,24 +28,20 @@ class API::V1::InvitationsController < APIController
     @invitation.user = User.find(params[:user_id])
     @invitation.event = Event.find(params[:event_id])
 
-    respond_to do |format|
-      if @invitation.save
-        render :show, status: :created, location: @invitation
-      else
-        render json: @invitation.errors, status: :unprocessable_entity
-      end
+    if @invitation.save
+      render :show, status: :created, location: @invitation
+    else
+      render json: @invitation.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /invitations/1
   # PATCH/PUT /invitations/1.json
   def update
-    respond_to do |format|
-      if @invitation.update(invitation_params)
-        render :show, status: :ok, location: api_v1_event_invitations_path(@invitation)
-      else
-        render json: @invitation.errors, status: :unprocessable_entity
-      end
+    if @invitation.update(invitation_params)
+      render :show, status: :ok, location: api_v1_event_invitations_path(@invitation)
+    else
+      render json: @invitation.errors, status: :unprocessable_entity
     end
   end
 

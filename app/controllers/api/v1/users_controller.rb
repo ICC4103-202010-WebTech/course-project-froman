@@ -26,24 +26,20 @@ class API::V1::UsersController < APIController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        render :show, status: :created, location: @user
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
+    if @user.save
+      render :show, status: :created, location: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        render :show, status: :ok, location: api_v1_user_path(@user)
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
+    if @user.update(user_params)
+      render :show, status: :ok, location: api_v1_user_path(@user)
+    else
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
