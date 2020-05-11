@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Users</h3>
+<h3>Users</h3><br>
 
 <tbody>
 <% @users.each_with_index do |user| %>
   <tr>
-    <li><%= link_to user.username, user_path(user.id) %></li>
-    <br>
+    <td><%= link_to user.username, user_path(user.id) %></td><br><br>
   </tr>
 <% end %>
 </tbody>

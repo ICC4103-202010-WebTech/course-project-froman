@@ -25,13 +25,12 @@
   </nav>
   <div id="container">
     <aside id="user_info">
-      <h3>User Information</h3>
-      
-      <li>Username: <%= User.third.username %></li>
-      <li>Mail: <%= User.third.email %> </li>
-      <li>Name: <%= User.third.name %> <%= User.third.lastName %></li>
-      <li>Biography: <%= User.third.biography %></li>
-      <li>Role: <% if User.third.mainRole == 0 %> Common <% else %> Administrator <% end %></li>
+      <h3><%= User.third.username %></h3>
+
+      <td>Name: <%= User.third.name %> <%= User.third.lastName %></td><br>
+      <td>Mail: <%= User.third.email %> </td><br>
+      <td>Biography: <%= User.third.biography %></td><br>
+      <td>Role: <% if User.third.mainRole == 0 %> Common <% else %> Administrator <% end %></td>
     </aside>
     <main id="main_content">
       <%= yield %>

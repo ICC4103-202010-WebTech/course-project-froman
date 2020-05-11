@@ -7,11 +7,12 @@
 <table>
   <tbody>
   <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
-    <li>Moderator: <%= link_to admin.user.username , user_path(admin.user.id) %></li>
-    <li>Description: <%= organization.description %></li>
+    <tr>Moderator: <%= link_to admin.user.username , user_path(admin.user.id) %></tr><br>
+    <tr>Description: <%= organization.description %></tr>
   <% end %><% end %>
   </tbody>
 </table>
+<br>
 
 <h4>Members</h4>
 <table>

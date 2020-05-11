@@ -7,11 +7,12 @@
 <table>
   <tbody>
   <% @event.each_with_index do |event| %>
-    <li>Date: <%= event.date %></li>
-    <li>Description: <%= event.description %></li>
+    <tr>Date: <%= event.date %></tr><br>
+    <tr>Description: <%= event.description %></tr>
   <% end %>
   </tbody>
 </table>
+<br>
 
 <h4>Voting Section</h4>
 <% @votes.each_with_index do |vote| %>
@@ -20,8 +21,9 @@
   </tr>
 <% end %>
 <br><br>
-<li>1) <%= @votes1 %></li>
-<li>2) <%= @votes2 %> </li>
+<td>1) <%= @votes1 %></td><br>
+<td>2) <%= @votes2 %> </td>
+<br><br>
 
 <h4>Comments Section</h4>
 <table>

@@ -7,10 +7,10 @@
 <table>
   <tbody>
   <% @user.each_with_index do |user| %>
-    <li>Name: <%= user.name %> <%= user.lastName %></li>
-    <li>Mail: <%= user.email %></li>
-    <li>Biography: <%= user.biography %></li>
-    <li>Role: <% if user.mainRole == 0 %> Common <% else %> Administrator <% end %></li>
+    <tr>Name: <%= user.name %> <%= user.lastName %></tr><br>
+    <tr>Mail: <%= user.email %></tr><br>
+    <tr>Biography: <%= user.biography %></tr><br>
+    <tr>Role: <% if user.mainRole == 0 %> Common <% else %> Administrator <% end %></tr>
   <% end %>
   </tbody>
 </table>
