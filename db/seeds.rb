@@ -140,21 +140,21 @@ comment6.save!
 ###COMMENTS###
 
 ###VOTES###
-vote1 = Vote.new(event: event1, invitation: invit4, options: "1) Next monday / 2) Next Friday", vote: 2)
+vote1 = Vote.new(event: event1, invitation: invit4, options: "(1) Next monday | (2) Next Friday", vote: 2)
 vote1.save!
 
-vote2 = Vote.new(event: event1, invitation: invit2, options: "1) Next monday / 2) Next Friday", vote: 2)
+vote2 = Vote.new(event: event1, invitation: invit2, options: "(1) Next monday | (2) Next Friday", vote: 2)
 vote2.save!
 
-vote3 = Vote.new(event: event2, invitation: invit9, options: "1) Tomorrow / 2) Next Tuesday", vote: 1)
+vote3 = Vote.new(event: event2, invitation: invit9, options: "(1) Tomorrow | (2) Next Tuesday", vote: 1)
 vote3.save!
 
-vote4 = Vote.new(event: event2, invitation: invit6, options: "1) Tomorrow / 2) Next Tuesday", vote: 1)
+vote4 = Vote.new(event: event2, invitation: invit6, options: "(1) Tomorrow | (2) Next Tuesday", vote: 1)
 vote4.save!
 
-vote5 = Vote.new(event: event3, invitation: invit13, options: "1) Next Sunday / 2) Next Saturday", vote: 1)
+vote5 = Vote.new(event: event3, invitation: invit13, options: "(1) Next Sunday | (2) Next Saturday", vote: 1)
 vote5.save!
 
-vote6 = Vote.new(event: event4, invitation: invit14, options: "1) Tomorrow / 2) Next Sunday", vote: 2)
+vote6 = Vote.new(event: event4, invitation: invit14, options: "(1) Tomorrow | (2) Next Sunday", vote: 2)
 vote6.save!
 ###VOTES###
