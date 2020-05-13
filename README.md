@@ -16,10 +16,20 @@ Run "rails db:setup" to execute migrations and seeds file.
 First of all, as this is a "read only", the user that is supposed to be logged in the server
 is the one with "id: 3".
 
+Most of the necessary navigation paths are implemented, exept for the "log in" and 
+"sign in" pages.
+
+At the end of this file there's a link to a postman collection, which has CRUD operations
+for Events and Comments model.
+
+Generic stylesheet implemented.
+
 
 --PENDING FEATURES--
 
-Asd
+Polishing the stylesheet.
+
+Add "log in" and "sign in" pages.
 
 
 --POSTMAN--
