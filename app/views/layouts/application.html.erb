@@ -12,29 +12,38 @@
 
   <body>
   <header>
-    <h1><%= link_to "Events App", root_path %></h1>
-  </header>
-  <nav>
-    <ul id="navbar">
-      <li><%= link_to "Invitations", user_invitations_path(3) %></li>
-      <li><%= link_to "Created Events", user_events_path(3) %></li>
-      <li><%= link_to "My Organizations", user_organization_roles_path(3) %></li>
-      <li><%= link_to "All Users", users_url %></li>
-      <li><%= link_to "All Organizations", organizations_path %></li>
-    </ul>
-  </nav>
-  <div id="container">
-    <aside id="user_info">
-      <h3><%= User.third.username %></h3>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <%= link_to "Events App", root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <td>Name: <%= User.third.name %> <%= User.third.lastName %></td><br>
-      <td>Mail: <%= User.third.email %> </td><br>
-      <td>Biography: <%= User.third.biography %></td><br>
-      <td>Role: <% if User.third.mainRole == 0 %> Common <% else %> Administrator <% end %></td>
-    </aside>
-    <main id="main_content">
-      <%= yield %>
-    </main>
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><%= link_to "Invitations", user_invitations_path(3), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Created Events", user_events_path(3), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "My Organizations", user_organization_roles_path(3), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "All Users", users_url, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "All Organizations", organizations_path, class: "nav-link" %></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-sm-2" id="user_info">
+        <h3><%= User.third.username %></h3>
+
+        <td>Name: <%= User.third.name %> <%= User.third.lastName %></td><br>
+        <td>Mail: <%= User.third.email %> </td><br>
+        <td>Biography: <%= User.third.biography %></td><br>
+        <td>Role: <% if User.third.mainRole == 0 %> Common <% else %> Administrator <% end %></td>
+      </aside>
+      <main class="col-sm-10" id="main_content">
+        <%= yield %>
+      </main>
+    </div>
   </div>
 
   </body>
