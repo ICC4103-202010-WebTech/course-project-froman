@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css.disable" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organizations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/invitations/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +170,7 @@
       <workItem from="1589517507727" duration="66000" />
       <workItem from="1589519444088" duration="136000" />
       <workItem from="1589589912542" duration="2250000" />
-      <workItem from="1590271282196" duration="4363000" />
+      <workItem from="1590271282196" duration="8133000" />
     </task>
     <servers />
   </component>
