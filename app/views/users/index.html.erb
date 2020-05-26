@@ -1,16 +1,29 @@
-<p id="notice"><%= notice %></p>
 
-<h3>Users</h3><br>
+<div class="row ml-0 mt-3">
+  <h4>Users</h4>
+</div>
+<div class="row ml-0">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row ml-0">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each_with_index do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to user.username, user_path(user.id) %></td>
+        <td><%= user.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
-<tbody>
-<% @users.each_with_index do |user| %>
-  <tr>
-    <td><%= link_to user.username, user_path(user.id) %></td><br><br>
-  </tr>
-<% end %>
-</tbody>
-
-<br>
-
-<%= link_to 'Back', :back %>
-
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>
