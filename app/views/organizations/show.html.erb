@@ -1,34 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<% @organization.each_with_index do |organization| %>
-  <h3><%= organization.name %></h3>
-<% end %>
-
-<table>
-  <tbody>
-  <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
-    <tr>Moderator: <%= link_to admin.user.username , user_path(admin.user.id) %></tr><br>
-    <tr>Description: <%= organization.description %></tr>
-  <% end %><% end %>
-  </tbody>
-</table>
 <br>
-
-<h4>Members</h4>
-<table>
-  <thead>
-  <th>Username</th>
-  <th>Role</th>
-  </thead>
-  <tbody>
-  <% @members.each_with_index do |member| %>
-    <tr>
-      <td><%= link_to member.user.username, user_path(member.user.id) %></td>
-      <td><% if member.role == 0 %> Normal <% else %> Moderator <% end %></td>
-    </tr>
+<div class="card" style="width: 30rem;">
+  <% @organization.each_with_index do |organization| %>
+    <h4 class="card-title"><%= organization.name %></h4>
   <% end %>
-  </tbody>
-</table>
+  <%= image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
+  <div class="card-body">
+    <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
+        <h6 class="card-subtitle mb-2 text-muted">Moderator: <%= link_to admin.user.username , user_path(admin.user.id) %></h6>
+        <p>Description: <%= organization.description %></p>
+        <% end %><% end %>
 
-<br>
-<%= link_to 'Back', :back %>
+  </div>
+</div>
+
+<div class="row ml-0 mt-3">
+  <h5>Members</h5>
+</div>
+<div class="row ml-0">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row ml-0">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @members.each_with_index do |member| %>
+      <tr>
+        <td><%= link_to member.user.username, user_path(member.user.id) %></td>
+        <td><% if member.role == 0 %> Normal <% else %> Moderator <% end %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>

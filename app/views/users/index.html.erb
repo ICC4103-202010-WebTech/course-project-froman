@@ -9,7 +9,6 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Username</th>
       <th scope="col">Name</th>
     </tr>
@@ -17,9 +16,8 @@
     <tbody>
     <% @users.each_with_index do |user| %>
       <tr>
-        <td><%= user.id %></td>
         <td><%= link_to user.username, user_path(user.id) %></td>
-        <td><%= user.name %></td>
+        <td><%= user.name %> <%= user.lastName %></td>
       </tr>
     <% end %>
     </tbody>
