@@ -1,18 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<% @user.each_with_index do |user| %>
-  <h3><%= user.username %></h3>
-<% end %>
-
-<table>
-  <tbody>
-  <% @user.each_with_index do |user| %>
-    <tr>Name: <%= user.name %> <%= user.lastName %></tr><br>
-    <tr>Mail: <%= user.email %></tr><br>
-    <tr>Biography: <%= user.biography %></tr><br>
-    <tr>Role: <% if user.mainRole == 0 %> Common <% else %> Administrator <% end %></tr>
-  <% end %>
-  </tbody>
-</table>
 <br>
-<%= link_to 'Back', :back %>
+<div class="row ml-0 mt-3">
+
+  <div class="card hovercard">
+    <div class="username">
+      <% @user.each_with_index do |user| %>
+        <h4><%= user.username %></h4>
+      <% end %>
+    </div>
+    <div class="avatar">
+      <%= image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
+    </div>
+    <div class="info">
+      <% @user.each_with_index do |user| %>
+        <div class="desc"><tr>Name: <%= user.name %> <%= user.lastName %></tr></div>
+        <div class="desc"><tr>Mail: <%= user.email %></tr></div>
+        <div class="desc"><tr>Biography: <%= user.biography %></tr></div>
+        <div class="desc"><tr><tr>Role: <% if user.mainRole == 0 %> Common <% else %> Administrator <% end %></tr></div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>
