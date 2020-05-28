@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/invitations/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organization_roles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_roles/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +174,8 @@
       <workItem from="1589519444088" duration="136000" />
       <workItem from="1589589912542" duration="2250000" />
       <workItem from="1590271282196" duration="8431000" />
-      <workItem from="1590527679081" duration="8758000" />
+      <workItem from="1590527679081" duration="9096000" />
+      <workItem from="1590633760647" duration="6350000" />
     </task>
     <servers />
   </component>
@@ -186,9 +191,9 @@
       <screen x="0" y="0" width="1920" height="926" />
     </state>
     <state x="712" y="202" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.926@0.0.1920.926" timestamp="1590272171989" />
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1590528108495">
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1590633901775">
       <screen x="0" y="0" width="1920" height="926" />
     </state>
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1590528108495" />
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1590633901775" />
   </component>
 </project>
