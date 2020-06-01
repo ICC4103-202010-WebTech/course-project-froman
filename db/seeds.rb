@@ -56,19 +56,19 @@ orgRole10.save!
 
 ###EVENTS###
 event1 = Event.new(creator: org1, name: "Pikachu Raid",
-                   description: "Capture pikachu", date: DateTime.now, privacy: 0)
+                   description: "Capture pikachu", date: "2020-07-15 00:00:00 UTC", privacy: 0)
 event1.save!
 
 event2 = Event.new(creator: org2, name: "Grand Line Adventure",
-                   description: "Get the One Piece", date: DateTime.now, privacy: 0)
+                   description: "Get the One Piece", date: "2020-10-05 00:00:00 UTC", privacy: 0)
 event2.save!
 
 event3 = Event.new(creator: user3, name: "Dungeons and Dragons",
-                   description: "First sesion", date: DateTime.now, privacy: 1)
+                   description: "First sesion", date: "2020-07-05 00:00:00 UTC", privacy: 1)
 event3.save!
 
 event4 = Event.new(creator: org2, name: "Sniper Training",
-                   description: "To become like the great sogeking", date: DateTime.now, privacy: 1)
+                   description: "To become like the great sogeking", date: "2020-11-07 00:00:00 UTC", privacy: 1)
 event4.save!
 ###EVENTS###
 

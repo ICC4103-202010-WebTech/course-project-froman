@@ -20,7 +20,7 @@
               <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event) %></button>
               <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Delete", event, method: :delete, remote: true%></button>
             </div>
-            <!-- <small class="text-muted"><%= "#{(event.date.to_date - DateTime.now.to_date).to_i} days left!" %></small> -->
+            <small class="text-muted"><%= "#{(event.date.to_date - DateTime.now.to_date).to_i} days left!" %></small>
           </div>
         </div>
       </div>
