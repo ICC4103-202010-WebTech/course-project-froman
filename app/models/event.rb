@@ -3,4 +3,6 @@ class Event < ApplicationRecord
   has_many :invitations, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+
+  has_one_attached :image
 end

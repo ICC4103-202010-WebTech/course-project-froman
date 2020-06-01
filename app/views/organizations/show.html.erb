@@ -1,16 +1,19 @@
-<br>
-<div class="card" style="width: 30rem;">
-  <% @organization.each_with_index do |organization| %>
-    <h4 class="card-title"><%= organization.name %></h4>
-  <% end %>
-  <%= image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
-  <div class="card-body">
-    <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
-        <h6 class="card-subtitle mb-2 text-muted">Moderator: <%= link_to admin.user.username , user_path(admin.user.id) %></h6>
-        <p>Description: <%= organization.description %></p>
-        <% end %><% end %>
 
-  </div>
+<div class="row ml-0 mt-3">
+  <ul class="list-unstyled">
+    <% @organization.each_with_index do |organization| %>
+      <h4 class="card-title"><%= organization.name %></h4>
+    <% end %>
+    <%= image_tag("thumbnail.svg", width: "400px", background: "#55595c", color: "#eceeef") %>
+  </ul>
+</div>
+<div class="row ml-0 mt-3">
+  <ul class="list-unstyled">
+    <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
+        <li><strong>Moderator:</strong> <%= link_to admin.user.username , user_path(admin.user.id) %></li>
+        <li><strong>Description:</strong> <%= organization.description %></li>
+        <% end %><% end %>
+  </ul>
 </div>
 
 <div class="row ml-0 mt-3">

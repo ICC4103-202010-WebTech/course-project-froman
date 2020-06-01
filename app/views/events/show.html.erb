@@ -1,20 +1,21 @@
-<br>
-<div class="card" style="width: 36rem;">
-  <% @event.each_with_index do |event| %>
-    <h3 class="card-title"><%= event.name %></h3>
-  <% end %>
-  <%= image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
-  <div class="card-body">
+<div class="row ml-0 mt-3">
+  <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
-        <p><%= event.date %></p>
-        <p>Description: <%= event.description %></p>
+      <h3 class="card-title"><%= event.name %></h3>
     <% end %>
-
-  </div>
+    <%= image_tag("thumbnail.svg", width: "400px", background: "#55595c", color: "#eceeef") %>
+  </ul>
+</div>
+<div class="row ml-0 mt-3">
+  <ul class="list-unstyled">
+    <% @event.each_with_index do |event| %>
+      <li><strong>Date:</strong> <%= event.date %></li>
+      <li><strong>Description:</strong> <%= event.description %></li>
+    <% end %>
+  </ul>
 </div>
 
 <br>
-
 <h4>Poll Section</h4>
 <div class="card" style="width: 24rem;">
   <% @event.each_with_index do |event| %>

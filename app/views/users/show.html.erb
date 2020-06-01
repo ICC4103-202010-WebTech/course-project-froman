@@ -1,25 +1,21 @@
-<br>
+
 <div class="row ml-0 mt-3">
-
-  <div class="card hovercard">
-    <div class="username">
-      <% @user.each_with_index do |user| %>
-        <h4><%= user.username %></h4>
-      <% end %>
-    </div>
-    <div class="avatar">
-      <%= image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
-    </div>
-    <div class="info">
-      <% @user.each_with_index do |user| %>
-        <div class="desc"><tr>Name: <%= user.name %> <%= user.lastName %></tr></div>
-        <div class="desc"><tr>Mail: <%= user.email %></tr></div>
-        <div class="desc"><tr>Biography: <%= user.biography %></tr></div>
-        <div class="desc"><tr><tr>Role: <% if user.mainRole == 0 %> Common <% else %> Administrator <% end %></tr></div>
-      <% end %>
-    </div>
-  </div>
-
+  <ul class="list-unstyled">
+    <% @user.each_with_index do |user| %>
+      <h3><%= user.username %></h3>
+    <% end %>
+    <%= image_tag(src="http://placehold.it/80", width: "300px", background: "#55595c", color: "#eceeef") %>
+  </ul>
+</div>
+<div class="row ml-0 mt-3">
+  <ul class="list-unstyled">
+    <% @user.each_with_index do |user| %>
+      <li><strong>Name:</strong> <%= user.name %> <%= user.lastName %></li>
+      <li><strong>Mail:</strong> <%= user.email %></li>
+      <li><strong>Biography:</strong> <%= user.biography %></li>
+      <li><strong>Role:</strong> <% if user.mainRole == 0 %> Common <% else %> Administrator <% end %></li>
+    <% end %>
+  </ul>
 </div>
 
 <br>

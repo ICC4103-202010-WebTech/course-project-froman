@@ -3,5 +3,7 @@ class Organization < ApplicationRecord
   has_many :users, through: :organization_roles
   has_many :events, as: :creator, dependent: :destroy
 
+  has_one_attached :org_image
+
   validates :name, uniqueness: true
 end
