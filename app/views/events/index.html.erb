@@ -8,7 +8,9 @@
   <% @events.each do |event| %>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-        <%= image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
+        <% if event.image.attached? == true%>
+          <%= image_tag(event.image, class: "card-img-top", width: "400px", background: "#55595c", color: "#eceeef") %>
+        <% else %> <%= image_tag("thumbnail.svg", class: "card-img-top", width: "400px", background: "#55595c", color: "#eceeef") %> <% end %>
         <div class="card-body">
           <p class="card-text"><%= link_to event.name, event %></p>
           <p class="card-text"><%= event.date %></p>

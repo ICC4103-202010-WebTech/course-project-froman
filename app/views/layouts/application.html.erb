@@ -34,8 +34,10 @@
     <div class="row">
       <aside class="col-sm-2" id="user_info">
         <br>
-        <h3><%= link_to User.third.username, user_path(3) %></h3>
-        <%= image_tag(src="http://placehold.it/80", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
+        <h3><%= link_to @current_user.username, user_path(@current_user.id) %></h3>
+        <% if @current_user.profile_image.attached? == true%>
+          <%= image_tag(@current_user.profile_image, width: "150px", background: "#55595c", color: "#eceeef") %>
+        <% else %> <%= image_tag(src="http://placehold.it/80", width: "150px", background: "#55595c", color: "#eceeef") %> <% end %>
 
         <td><strong>Name:</strong> <%= @current_user.name %> <%= @current_user.lastName %></td><br>
         <td><strong>Role:</strong> <% if @current_user.mainRole == 0 %> Common <% else %> Administrator <% end %></td><br>

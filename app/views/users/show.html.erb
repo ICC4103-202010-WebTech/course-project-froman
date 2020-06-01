@@ -3,8 +3,10 @@
   <ul class="list-unstyled">
     <% @user.each_with_index do |user| %>
       <h3><%= user.username %></h3>
+      <% if user.profile_image.attached? == true%>
+        <%= image_tag(user.profile_image, width: "250px", background: "#55595c", color: "#eceeef") %>
+      <% else %> <%= image_tag(src="http://placehold.it/80", width: "250px", background: "#55595c", color: "#eceeef") %> <% end %>
     <% end %>
-    <%= image_tag(src="http://placehold.it/80", width: "300px", background: "#55595c", color: "#eceeef") %>
   </ul>
 </div>
 <div class="row ml-0 mt-3">

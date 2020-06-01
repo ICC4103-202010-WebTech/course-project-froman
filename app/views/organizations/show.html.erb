@@ -3,8 +3,10 @@
   <ul class="list-unstyled">
     <% @organization.each_with_index do |organization| %>
       <h4 class="card-title"><%= organization.name %></h4>
+      <% if organization.org_image.attached? == true%>
+        <%= image_tag(organization.org_image, width: "400px", background: "#55595c", color: "#eceeef") %>
+      <% else %> <%= image_tag("thumbnail.svg", width: "400px", background: "#55595c", color: "#eceeef") %> <% end %>
     <% end %>
-    <%= image_tag("thumbnail.svg", width: "400px", background: "#55595c", color: "#eceeef") %>
   </ul>
 </div>
 <div class="row ml-0 mt-3">
