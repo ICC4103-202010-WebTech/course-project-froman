@@ -20,9 +20,9 @@
 
       <div class="collapse navbar-collapse" id="navbarsExample03">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><%= link_to "Invitations", user_invitations_path(3), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Created Events", user_events_path(3), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "My Organizations", user_organization_roles_path(3), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Invitations", user_invitations_path(@current_user.id), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Created Events", user_events_path(@current_user.id), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "My Organizations", user_organization_roles_path(@current_user.id), class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "All Users", users_url, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "All Organizations", organizations_path, class: "nav-link" %></li>
         </ul>
@@ -37,9 +37,9 @@
         <h3><%= link_to User.third.username, user_path(3) %></h3>
         <%= image_tag(src="http://placehold.it/80", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
 
-        <td><strong>Name:</strong> <%= User.third.name %> <%= User.third.lastName %></td><br>
-        <td><strong>Role:</strong> <% if User.third.mainRole == 0 %> Common <% else %> Administrator <% end %></td><br>
-        <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(User.third.id) %></button></td>
+        <td><strong>Name:</strong> <%= @current_user.name %> <%= @current_user.lastName %></td><br>
+        <td><strong>Role:</strong> <% if @current_user.mainRole == 0 %> Common <% else %> Administrator <% end %></td><br>
+        <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(@current_user.id) %></button></td>
       </aside>
       <main class="col-sm-10" id="main_content">
         <%= yield %>

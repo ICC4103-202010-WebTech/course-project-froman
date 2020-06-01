@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.where(creator_id: 3, creator_type: "User")
+    x = @current_user.id
+    @events = Event.where(creator_id: x, creator_type: "User")
   end
 
   # GET /events/1

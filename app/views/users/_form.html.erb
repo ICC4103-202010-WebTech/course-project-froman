@@ -1,17 +1,25 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="row ml-0">
+  <%= form_with model: @user, local: true do |form| %>
+    <%= errors_for @user %>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :lastName %>
+      <%= form.text_field :lastName, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :biography %>
+      <%= form.text_area :biography, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :profile_image %>
+      <%= form.file_field :profile_image, class: "form-control-file" %>
+    </div>
+    <div class="form-group mt-2">
+      <%= form.submit submit_btn_text, class: ["btn", "btn-primary"] %>
+      <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
