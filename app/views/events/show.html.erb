@@ -11,6 +11,11 @@
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
+      <% if event.creator_type == "User" %>
+        <li><strong>Host:</strong> <%= link_to User.where(id: event.creator_id).pluck("username")[0], user_path(event.creator_id) %></li>
+      <% else %>
+        <li><strong>Host:</strong> <%= link_to Organization.where(id: event.creator_id).pluck("name")[0], organization_path(event.creator_id)%> </li>
+      <% end %>
       <li><strong>Date:</strong> <%= event.date %></li>
       <li><strong>Description:</strong> <%= event.description %></li>
     <% end %>
