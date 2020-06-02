@@ -4,6 +4,9 @@
       <h4 class="card-title"><%= organization.name %>
         <% if OrganizationRole.where(user_id: @current_user.id, organization_id: organization).pluck("role") == [1] %>
           <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization.id) %></button>
+          <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
+          </p>
         <% end %>
       </h4>
       <% if organization.org_image.attached? == true%>
@@ -14,10 +17,10 @@
 </div>
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
-    <% @organization.each_with_index do |organization| %><% @admin.each_with_index do |admin| %>
-        <li><strong>Moderator:</strong> <%= link_to admin.user.username , user_path(admin.user.id) %></li>
+    <% @organization.each_with_index do |organization| %>
+        <li><strong>Moderator:</strong> <%= link_to @admin.user.username , user_path(@admin.user.id) %></li>
         <li><strong>Description:</strong> <%= organization.description %></li>
-        <% end %><% end %>
+        <% end %>
   </ul>
 </div>
 
@@ -25,14 +28,12 @@
   <h5>Members</h5>
 </div>
 <div class="row ml-0">
-  <p id="notice"><%= notice %></p>
-</div>
-<div class="row ml-0">
   <table class="table">
     <thead>
     <tr>
       <th scope="col">Username</th>
       <th scope="col">Role</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -40,10 +41,14 @@
       <tr>
         <td><%= link_to member.user.username, user_path(member.user.id) %></td>
         <td><% if member.role == 0 %> Normal <% else %> Moderator <% end %></td>
+          <% if @current_user.id == @admin.user.id and member.user.id != @current_user.id %>
+          <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Remove", member, method: :delete, remote: true%></button></td>
+          <% elsif @current_user.id != @admin.user.id and member.user.id == @current_user.id %>
+          <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Leave", member, method: :delete, remote: true%></button></td>
+          <% end %>
       </tr>
     <% end %>
     </tbody>
   </table>
 </div>
-
 <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>

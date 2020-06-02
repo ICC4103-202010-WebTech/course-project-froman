@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @organization = Organization.where(id: params[:id])
-    @admin = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id], role: 1)
+    @admin = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id], role: 1)[0]
     @members = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id])
   end
 
@@ -59,7 +59,7 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     respond_to do |format|
-      format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
+      format.html { redirect_to organizations_url, notice: 'Organization was successfully deleted.' }
       format.json { head :no_content }
     end
   end

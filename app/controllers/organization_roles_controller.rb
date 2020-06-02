@@ -56,7 +56,7 @@ class OrganizationRolesController < ApplicationController
   def destroy
     @organization_role.destroy
     respond_to do |format|
-      format.html { redirect_to organization_roles_url, notice: 'Organization role was successfully destroyed.' }
+      format.html { redirect_to organizations_url, notice: 'Action was successfully executed.' }
       format.json { head :no_content }
     end
   end
