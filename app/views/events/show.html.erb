@@ -1,7 +1,17 @@
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
-      <h3 class="card-title"><%= event.name %></h3>
+      <h3 class="card-title"><%= event.name %>
+        <% if event.creator_type == "User" %>
+          <% if @current_user.id == event.creator_id %>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
+          <% end %>
+        <% elsif event.creator_type == "Organization" %>
+          <% if OrganizationRole.where(user_id: @current_user.id, organization_id: event.creator_id).pluck("role") == [1] %>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
+          <% end %>
+        <% end %>
+      </h3>
       <% if event.image.attached? == true%>
         <%= image_tag(event.image, width: "400px", background: "#55595c", color: "#eceeef") %>
       <% else %> <%= image_tag("thumbnail.svg", width: "400px", background: "#55595c", color: "#eceeef") %> <% end %>

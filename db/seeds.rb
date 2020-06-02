@@ -73,49 +73,49 @@ event4.save!
 ###EVENTS###
 
 ###INVITATIONS###
-invit1 = Invitation.new(event: event1, user: user1)
+invit1 = Invitation.new(event: event1, user: user1, host: 0)
 invit1.save!
 
-invit2 = Invitation.new(event: event1, user: user2)
+invit2 = Invitation.new(event: event1, user: user2, host: 0)
 invit2.save!
 
-invit3 = Invitation.new(event: event1, user: user3)
+invit3 = Invitation.new(event: event1, user: user3, host: 0)
 invit3.save!
 
-invit4 = Invitation.new(event: event1, user: user4)
+invit4 = Invitation.new(event: event1, user: user4, host: 0)
 invit4.save!
 
-invit5 = Invitation.new(event: event1, user: user5)
+invit5 = Invitation.new(event: event1, user: user5, host: 1)
 invit5.save!
 
-invit6 = Invitation.new(event: event2, user: user6)
+invit6 = Invitation.new(event: event2, user: user6, host: 1)
 invit6.save!
 
-invit7 = Invitation.new(event: event2, user: user7)
+invit7 = Invitation.new(event: event2, user: user7, host: 0)
 invit7.save!
 
-invit8 = Invitation.new(event: event2, user: user8)
+invit8 = Invitation.new(event: event2, user: user8, host: 0)
 invit8.save!
 
-invit9 = Invitation.new(event: event2, user: user9)
+invit9 = Invitation.new(event: event2, user: user9, host: 0)
 invit9.save!
 
-invit10 = Invitation.new(event: event2, user: user10)
+invit10 = Invitation.new(event: event2, user: user10, host: 0)
 invit10.save!
 
-invit11 = Invitation.new(event: event3, user: user3)
+invit11 = Invitation.new(event: event3, user: user3, host: 1)
 invit11.save!
 
-invit12 = Invitation.new(event: event3, user: user2)
+invit12 = Invitation.new(event: event3, user: user2, host: 0)
 invit12.save!
 
-invit13 = Invitation.new(event: event3, user: user5)
+invit13 = Invitation.new(event: event3, user: user5, host: 0)
 invit13.save!
 
-invit14 = Invitation.new(event: event4, user: user10)
+invit14 = Invitation.new(event: event4, user: user10, host: 0)
 invit14.save!
 
-invit15 = Invitation.new(event: event4, user: user6)
+invit15 = Invitation.new(event: event4, user: user6, host: 1)
 invit15.save!
 ###INVITATIONS###
 

@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_223658) do
   create_table "invitations", force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
+    t.integer "host"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_invitations_on_event_id"
