@@ -3,15 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/invitations/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organization_roles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_roles/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/organizations/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200419205947_create_invitations.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200419205947_create_invitations.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab9-lab9-imayer-froman" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab8-lab8-imayer-froman" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
@@ -184,7 +186,7 @@
       <workItem from="1590713297625" duration="41000" />
       <workItem from="1590715992579" duration="991000" />
       <workItem from="1590893597211" duration="328000" />
-      <workItem from="1591044001171" duration="17590000" />
+      <workItem from="1591044001171" duration="20397000" />
     </task>
     <servers />
   </component>
@@ -200,9 +202,9 @@
       <screen x="0" y="0" width="1920" height="926" />
     </state>
     <state x="712" y="202" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.926@0.0.1920.926" timestamp="1590272171989" />
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1591044160009">
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1591075351000">
       <screen x="0" y="0" width="1920" height="926" />
     </state>
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1591044160009" />
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1591075351000" />
   </component>
 </project>

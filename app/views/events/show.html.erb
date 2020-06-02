@@ -1,7 +1,7 @@
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
-      <h3 class="card-title"><%= event.name %>
+      <h4 class="card-title"><%= event.name %>
         <% if event.creator_type == "User" %>
           <% if @current_user.id == event.creator_id %>
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
@@ -11,7 +11,7 @@
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
           <% end %>
         <% end %>
-      </h3>
+      </h4>
       <% if event.image.attached? == true%>
         <%= image_tag(event.image, width: "400px", background: "#55595c", color: "#eceeef") %>
       <% else %> <%= image_tag("thumbnail.svg", width: "400px", background: "#55595c", color: "#eceeef") %> <% end %>

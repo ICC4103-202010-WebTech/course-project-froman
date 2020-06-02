@@ -44,6 +44,16 @@
         <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(@current_user.id) %></button></td>
       </aside>
       <main class="col-sm-10" id="main_content">
+        <% if notice.present? %>
+          <div class="row ml-0 mt-3" role="alert">
+            <div id="notice" class="alert alert-success"><%= notice %></div>
+          </div>
+        <% end %>
+        <% if alert.present? %>
+          <div class="row ml-0 mt-3" role="alert">
+            <div id="alert" class="alert alert-danger"><%= alert %></div>
+          </div>
+        <% end %>
         <%= yield %>
       </main>
     </div>
