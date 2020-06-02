@@ -25,6 +25,21 @@
 </div>
 
 <div class="row ml-0 mt-3">
+  <h5>Public Events</h5>
+</div>
+<div class="row ml-0">
+  <ul class="list-unstyled">
+    <% if @events.count == 0 %>
+      <li><strong>No events in the moment!</strong></li>
+    <% else %>
+      <% @events.each_with_index do |event| %>
+        <li><strong><%= event.name %></strong></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="row ml-0 mt-3">
   <h5>Members</h5>
 </div>
 <div class="row ml-0">

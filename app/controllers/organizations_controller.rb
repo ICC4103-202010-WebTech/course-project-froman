@@ -13,6 +13,8 @@ class OrganizationsController < ApplicationController
     @organization = Organization.where(id: params[:id])
     @admin = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id], role: 1)[0]
     @members = OrganizationRole.includes(:user, :organization).where(organization_id: params[:id])
+
+    @events = Event.where(creator_id: params[:id], creator_type: "Organization", privacy: 0)
   end
 
   # GET /organizations/new
