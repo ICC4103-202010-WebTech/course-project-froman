@@ -67,6 +67,9 @@
         <span class="comment"></span>
         <h4 class="panel-title">Recent Comments</h4>
       </div>
+      <div class="row ml-0 mt-2 mb-3">
+        <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
+      </div>
       <div class="panel-body">
         <ul class="list-group">
           <% @comments.each_with_index do |comment| %>

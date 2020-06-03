@@ -7,6 +7,10 @@
           <p class="float-right">
             <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
           </p>
+        <% elsif OrganizationRole.where(user_id: @current_user.id, organization_id: organization).count == 0 %>
+          <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Join</button>
+          </p>
         <% end %>
       </h4>
       <% if organization.org_image.attached? == true%>

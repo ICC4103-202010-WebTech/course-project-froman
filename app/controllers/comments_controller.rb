@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
+    @event = Event.find(params[:event_id])
     @comment = Comment.new
+    @comment.event = @event
+    @comment.invitation = Invitation.where(user: @current_user.id, event: Event.find(params[:event_id])).first
   end
 
   # GET /comments/1/edit
@@ -24,11 +27,14 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    @event = Event.find(params[:event_id])
     @comment = Comment.new(comment_params)
+    @comment.event = @event
+    @comment.invitation = Invitation.where(user: @current_user.id, event: Event.find(params[:event_id])).first
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @event, notice: 'Comment was successfully posted.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -69,6 +75,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.fetch(:comment, {})
+      params.fetch(:comment, {}).permit(:content)
     end
 end

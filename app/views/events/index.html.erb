@@ -1,7 +1,11 @@
 <div class="row ml-0 mt-3">
   <h4>Created Events</h4>
 </div>
-
+<!--
+<div class="row ml-0 mt-2 mb-3">
+  <%= link_to "Create Event", new_event_path, class: ["btn", "btn-primary"] %>
+</div>
+-->
 <div class="row">
   <% @events.each do |event| %>
     <div class="col-md-4">
