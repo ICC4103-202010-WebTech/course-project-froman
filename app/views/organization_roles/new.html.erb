@@ -1,5 +1,2 @@
-<h1>New Organization Role</h1>
+<%= render "form", locals: { organization: @organization, organization_role: @organization_role } %>
 
-<%= render 'form', organization_role: @organization_role %>
-
-<%= link_to 'Back', organization_roles_path %>

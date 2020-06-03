@@ -14,7 +14,11 @@ class OrganizationRolesController < ApplicationController
 
   # GET /organization_roles/new
   def new
+    @organization = Organization.find(params[:organization_id])
     @organization_role = OrganizationRole.new
+    @organization_role.organization = @organization
+    @organization_role.user = @current_user
+    @organization_role.role = 0
   end
 
   # GET /organization_roles/1/edit
@@ -24,11 +28,15 @@ class OrganizationRolesController < ApplicationController
   # POST /organization_roles
   # POST /organization_roles.json
   def create
+    @organization = Organization.find(params[:organization_id])
     @organization_role = OrganizationRole.new(organization_role_params)
+    @organization_role.organization = @organization
+    @organization_role.user = @current_user
+    @organization_role.role = 0
 
     respond_to do |format|
       if @organization_role.save
-        format.html { redirect_to @organization_role, notice: 'Organization role was successfully created.' }
+        format.html { redirect_to @organization, notice: 'You have succesfully joined the organization.' }
         format.json { render :show, status: :created, location: @organization_role }
       else
         format.html { render :new }
@@ -69,6 +77,6 @@ class OrganizationRolesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_role_params
-      params.fetch(:organization_role, {})
+      params.fetch(:organization_role, {}).permit(:user, :organization, :role)
     end
 end
