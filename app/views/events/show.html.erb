@@ -79,6 +79,11 @@
                   <div class="col-xs-10 col-md-12">
                     <div>
                       <%= link_to comment.username, user_path(comment.id) %>
+                        <% if comment.id == @current_user.id %>
+                          <p class="float-right">
+                            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
+                          </p>
+                        <% end %>
                     </div>
                     <div class="col-xs-10 col-md-12">
                       <%= comment.content %>
