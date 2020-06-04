@@ -1,11 +1,11 @@
 <div class="row ml-0 mt-3">
   <h4>Created Events</h4>
 </div>
-<!--
+
 <div class="row ml-0 mt-2 mb-3">
-  <%= link_to "Create Event", new_event_path, class: ["btn", "btn-primary"] %>
+  <%= link_to "Create Event", new_user_event_path(@current_user.id), class: ["btn", "btn-primary"] %>
 </div>
--->
+
 <div class="row">
   <% if @events.count == 0 %>
     <div class="row ml-0">
@@ -36,7 +36,9 @@
                   <% end %>
                 <% end %>
               </div>
-              <small class="text-muted"><%= "#{(event.date.to_date - DateTime.now.to_date).to_i} days left!" %></small>
+              <% if event.date != nil %>
+                <small class="text-muted"><%= "#{(event.date.to_date - DateTime.now.to_date).to_i} days left!" %></small>
+              <% end %>
             </div>
           </div>
         </div>

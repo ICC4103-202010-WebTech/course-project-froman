@@ -32,7 +32,9 @@
                   <% end %>
                 <% end %>
               </div>
-              <small class="text-muted"><%= "#{(event.date.to_date - DateTime.now.to_date).to_i} days left!" %></small>
+              <% if event.date != nil %>
+                <small class="text-muted"><%= "#{(event.date.to_date - DateTime.now.to_date).to_i} days left!" %></small>
+              <% end %>
             </div>
           </div>
         </div>

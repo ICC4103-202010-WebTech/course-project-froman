@@ -1,5 +1,11 @@
-<h1>New Event</h1>
-
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
+<div class="row ml-0 mt-3">
+  <h2>New Event</h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Please enter the required information to create a new event:</p>
+</div>
+<%= render partial: "form",
+           locals: {
+               event: @event,
+               submit_btn_text: "Create"
+           } %>

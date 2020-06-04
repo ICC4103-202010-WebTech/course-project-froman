@@ -31,6 +31,11 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+
+    y = User.find(@current_user.id)
+    @event.creator_type = "User"
+    @event.creator = y
+
   end
 
   # GET /events/1/edit
@@ -42,9 +47,22 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
+    y = User.find(@current_user.id)
+    @event.creator_type = "User"
+    @event.creator = y
+
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+
+        @new_event_creator = Invitation.new
+        @new_event_creator.user = @current_user
+        @new_event_creator.event = @event
+        @new_event_creator.host = 1
+        if  @new_event_creator.errors.blank?
+          @new_event_creator.save
+        end
+
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -85,6 +103,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:name, :description, :date, :privacy, :image, :creator)
+      params.fetch(:event, {}).permit(:id, :name, :description, :date, :privacy, :image)
     end
 end
