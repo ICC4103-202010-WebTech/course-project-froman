@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organization_roles_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_roles_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/comments/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organization_roles/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_roles/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/organization_roles/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_roles/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/invitations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/invitations/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organization_roles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization_roles/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/organizations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/organizations/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organizations/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +183,7 @@
       <workItem from="1590893597211" duration="328000" />
       <workItem from="1591044001171" duration="20805000" />
       <workItem from="1591134203834" duration="11448000" />
-      <workItem from="1591225335563" duration="1567000" />
+      <workItem from="1591225335563" duration="4577000" />
     </task>
     <servers />
   </component>

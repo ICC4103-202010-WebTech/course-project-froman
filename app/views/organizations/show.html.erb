@@ -34,7 +34,9 @@
 <div class="row ml-0">
   <ul class="list-unstyled">
     <% if @events.count == 0 %>
-      <li><strong>No events in the moment!</strong></li>
+      <div class="row ml-0 ">
+        No public events at the moment!
+      </div>
     <% else %>
       <% @events.each_with_index do |event| %>
         <li><strong><%= event.name %></strong></li>
@@ -70,4 +72,7 @@
     </tbody>
   </table>
 </div>
-<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>
+
+<div class="row ml-0 mt-3">
+  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>
+</div>

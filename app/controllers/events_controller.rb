@@ -5,11 +5,16 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     x = @current_user.id
-    if OrganizationRole.where(user_id: x).pluck("role") == [0]
-      @events = Event.where(creator_id: x, creator_type: "User")
+    orgs = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
+    if orgs.count > 0
+      @events = []
+      for i in orgs
+        for j in Event.where(creator_id: i)
+          @events << j
+        end
+      end
     else
-      y = OrganizationRole.where(user_id: @current_user.id).pluck("organization_id")
-      @events = Event.where(creator_id: y, creator_type: "Organization")
+      @events = Event.where(creator_id: x, creator_type: "User")
     end
   end
 
