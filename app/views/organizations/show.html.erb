@@ -39,7 +39,7 @@
       </div>
     <% else %>
       <% @events.each_with_index do |event| %>
-        <li><strong><%= event.name %></strong></li>
+        <li><strong><%= link_to event.name, event_path(event.id) %></strong></li>
       <% end %>
     <% end %>
   </ul>
