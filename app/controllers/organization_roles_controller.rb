@@ -32,7 +32,6 @@ class OrganizationRolesController < ApplicationController
     @organization_role = OrganizationRole.new(organization_role_params)
     @organization_role.organization = @organization
     @organization_role.user = @current_user
-    @organization_role.role = 0
 
     respond_to do |format|
       if @organization_role.save

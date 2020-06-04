@@ -4,6 +4,9 @@
     <div class="form-group">
       <h4><%= form.label :join_organization? %></h4>
     </div>
+    <div class="form-group">
+      <%= form.hidden_field :role, value: 0 %>
+    </div>
     <div class="form-group mt-2">
       <%= form.submit "Yes", class: ["btn", "btn-primary"] %>
       <%= link_to "No", :back, class: ["btn", "btn-secondary"] %>
