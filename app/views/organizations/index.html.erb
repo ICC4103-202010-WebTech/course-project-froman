@@ -2,7 +2,9 @@
   <h4>Organizations</h4>
 </div>
 
-<!-- <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'New Organization', new_organization_path %></button> -->
+<div class="row ml-0 mt-2 mb-3">
+  <%= link_to 'New Organization', new_organization_path, class: ["btn", "btn-primary"] %>
+</div>
 
 <div class="row">
   <% if @organizations.count == 0 %>

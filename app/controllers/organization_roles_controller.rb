@@ -18,7 +18,6 @@ class OrganizationRolesController < ApplicationController
     @organization_role = OrganizationRole.new
     @organization_role.organization = @organization
     @organization_role.user = @current_user
-    @organization_role.role = 0
   end
 
   # GET /organization_roles/1/edit
@@ -76,6 +75,6 @@ class OrganizationRolesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_role_params
-      params.fetch(:organization_role, {}).permit(:user, :organization, :role)
+      params.fetch(:organization_role, {}).permit(:id, :user, :organization, :role, :user_id, :organization_id)
     end
 end
