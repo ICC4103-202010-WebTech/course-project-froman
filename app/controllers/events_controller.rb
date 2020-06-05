@@ -22,9 +22,9 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.where(id: params[:id])
-    @votes = Vote.where(event_id: params[:id]).limit(1)
-    @votes1 = Vote.where(event_id: params[:id], vote: 1).count
-    @votes2 = Vote.where(event_id: params[:id], vote: 2).count
+    @votes_title = Vote.where(event_id: params[:id]).limit(1)
+    @votes = Vote.where(event_id: params[:id])
+    @guests = Invitation.where(event_id: params[:id])
     @comments = User.select('users.username, users.id, comments.content, comments.id as comment_id').joins(invitations: :comments).where(invitations: { event_id: params[:id] })
   end
 

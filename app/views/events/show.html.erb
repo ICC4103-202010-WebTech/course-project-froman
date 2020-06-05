@@ -41,21 +41,32 @@
 <br>
 <h4>Poll Section</h4>
 <div class="card" style="width: 24rem;">
-  <% @event.each_with_index do |event| %>
-    <h5 class="card-title"><% @votes.each_with_index do |vote| %>
+  <% if @votes_title.count == 0 %>
+    <div class="row ml-0 ">
+      <%= link_to "Create Poll", new_event_vote_path(@event[0].id) , class: ["btn", "btn-primary"] %>
+    </div>
+  <% else %>
+    <h5 class="card-title"><% @votes_title.each_with_index do |votes_title| %>
         <tr>
-          <h5><%= vote.options %></h5>
+          <h5><%= votes_title.options %></h5>
         </tr>
-      <% end %></h5>
+      <% end %>
+    </h5>
+    <div class="card-body">
+      <strong>(1)</strong><span class="pull-right"> <%= @votes.where(vote: 1).count %></span><br>
+      <strong>(2)</strong><span class="pull-right"> <%= @votes.where(vote: 2).count %></span>
+      <br><br>
+      <p>
+        <% @guests.each_with_index do |guest| %>
+          <% if guest.user_id == @current_user.id %>
+            <% if @votes.pluck("invitation_id").exclude? guest.id %>
+              <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Vote", new_event_vote_path(@event[0].id) %></button>
+            <% end %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
   <% end %>
-  <div class="card-body">
-    <strong>(1)</strong><span class="pull-right"> <%= @votes1 %></span><br>
-    <strong>(2)</strong><span class="pull-right"> <%= @votes2 %></span>
-    <br><br>
-    <p>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Vote</button>
-    </p>
-  </div>
 </div>
 
 <br>
