@@ -24,6 +24,7 @@
     <% end %>
   </ul>
 </div>
+
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
@@ -36,6 +37,38 @@
       <li><strong>Description:</strong> <%= event.description %></li>
     <% end %>
   </ul>
+</div>
+
+<div class="row ml-0 mt-3">
+  <h4>Guest List</h4>
+</div>
+<div class="row ml-0">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @guests.each_with_index do |guest| %>
+      <tr>
+        <td><%= link_to User.find(guest.user_id).username, user_path(guest.user_id) %></td>
+        <td><%= User.find(guest.user_id).name %> <%= User.find(guest.user_id).lastName %></td>
+
+        <% if @event[0].creator_type == "User" %>
+          <% if @current_user.id == @event[0].creator_id and guest.user_id != @current_user.id  %>
+            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+          <% end %>
+        <% elsif @event[0].creator_type == "Organization" %>
+          <% if OrganizationRole.where(user_id: @current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] and guest.user_id != @current_user.id %>
+            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
 <br>
