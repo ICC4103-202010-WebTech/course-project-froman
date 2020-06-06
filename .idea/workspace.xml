@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/invitations/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/invitations/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/invitations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/invitations/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab9-lab9-imayer-froman" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
@@ -183,7 +184,7 @@
       <workItem from="1591225335563" duration="18495000" />
       <workItem from="1591291684019" duration="4735000" />
       <workItem from="1591322707567" duration="6980000" />
-      <workItem from="1591407649321" duration="2789000" />
+      <workItem from="1591407649321" duration="6752000" />
     </task>
     <servers />
   </component>
@@ -199,10 +200,10 @@
       <screen x="0" y="0" width="1920" height="926" />
     </state>
     <state x="712" y="202" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.926@0.0.1920.926" timestamp="1590272171989" />
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1591327072611">
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1591412589490">
       <screen x="0" y="0" width="1920" height="926" />
     </state>
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1591327072611" />
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1591412589490" />
     <state x="761" y="383" width="456" height="162" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591297644849">
       <screen x="0" y="0" width="1920" height="926" />
     </state>

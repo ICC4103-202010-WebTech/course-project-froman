@@ -15,7 +15,9 @@ class InvitationsController < ApplicationController
 
   # GET /invitations/new
   def new
+    @event = Event.find(params[:event_id])
     @invitation = Invitation.new
+    @invitation.event = @event
   end
 
   # GET /invitations/1/edit
@@ -25,11 +27,13 @@ class InvitationsController < ApplicationController
   # POST /invitations
   # POST /invitations.json
   def create
+    @event = Event.find(params[:event_id])
     @invitation = Invitation.new(invitation_params)
+    @invitation.event = @event
 
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to @invitation, notice: 'Invitation was successfully created.' }
+        format.html { redirect_to @event, notice: 'Invitation was successfully created.' }
         format.json { render :show, status: :created, location: @invitation }
       else
         format.html { render :new }
@@ -57,7 +61,7 @@ class InvitationsController < ApplicationController
   def destroy
     @invitation.destroy
     respond_to do |format|
-      format.html { redirect_to user_invitations_path(@current_user.id), notice: 'Invitation was successfully deleted.' }
+      format.html { redirect_to root_path, notice: 'Invitation was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +74,6 @@ class InvitationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invitation_params
-      params.fetch(:invitation, {})
+      params.fetch(:invitation, {}).permit(:id, :host, :event, :user, :event_id, :user_id)
     end
 end

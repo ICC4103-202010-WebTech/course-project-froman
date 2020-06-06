@@ -1,17 +1,16 @@
-<%= form_with(model: invitation, local: true) do |form| %>
-  <% if invitation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
-
-      <ul>
-        <% invitation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+<div class="row ml-0 m-3">
+<%= form_with model: [@event, @invitation], local: true do |form| %>
+  <%= errors_for @invitation %>
+  <div class="form-group">
+    <%= form.label :Who_are_you_inviting? %><br>
+    <%= form.select :user_id, options_for_select(User.where.not(id: (Invitation.where(event_id: @event.id).pluck("user_id"))).pluck(:username, :id))%>
+  </div>
+  <div class="form-group">
+    <%= form.hidden_field :host, value: 0 %>
+  </div>
+  <div class="form-group mt-2">
+    <%= form.submit "Vote", class: ["btn", "btn-primary"] %>
+    <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
   </div>
 <% end %>
+</div>

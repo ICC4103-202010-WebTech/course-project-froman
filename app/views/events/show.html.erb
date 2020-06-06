@@ -67,6 +67,18 @@
         <% end %>
       </tr>
     <% end %>
+
+    <div class="row ml-0 mt-2 mb-3">
+      <% if @event[0].creator_type == "User" %>
+        <% if @current_user.id == @event[0].creator_id %>
+          <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+        <% end %>
+      <% elsif @event[0].creator_type == "Organization" %>
+        <% if OrganizationRole.where(user_id: @current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] %>
+          <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+        <% end %>
+      <% end %>
+    </div>
     </tbody>
   </table>
 </div>
