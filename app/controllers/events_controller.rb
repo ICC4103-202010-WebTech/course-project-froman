@@ -13,6 +13,9 @@ class EventsController < ApplicationController
           @events << j
         end
       end
+      for y in Event.where(creator_id: x, creator_type: "User")
+        @events << y
+      end
     else
       @events = Event.where(creator_id: x, creator_type: "User")
     end
@@ -31,7 +34,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-
+    #delete
     y = User.find(@current_user.id)
     @event.creator_type = "User"
     @event.creator = y
@@ -46,7 +49,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
+    #delete
     y = User.find(@current_user.id)
     @event.creator_type = "User"
     @event.creator = y
