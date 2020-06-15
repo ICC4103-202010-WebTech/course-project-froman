@@ -34,10 +34,6 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    #delete
-    y = User.find(@current_user.id)
-    @event.creator_type = "User"
-    @event.creator = y
 
   end
 
@@ -49,10 +45,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    #delete
-    y = User.find(@current_user.id)
-    @event.creator_type = "User"
-    @event.creator = y
 
     respond_to do |format|
       if @event.save
@@ -106,6 +98,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:id, :name, :description, :date, :privacy, :image)
+      params.fetch(:event, {}).permit(:id, :name, :description, :date, :privacy, :image, :creator_type, :creator_id)
     end
 end
