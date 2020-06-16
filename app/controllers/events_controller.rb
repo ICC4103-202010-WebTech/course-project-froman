@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     x = @current_user.id
+    @moderator = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
     orgs = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
     if orgs.count > 0
       @events = []
@@ -45,6 +46,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+
 
     respond_to do |format|
       if @event.save

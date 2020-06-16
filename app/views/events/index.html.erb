@@ -2,8 +2,12 @@
   <h4>Created Events</h4>
 </div>
 
-<div class="row ml-0 mt-2 mb-3">
-  <%= link_to "Create Event", new_user_event_path(@current_user.id), class: ["btn", "btn-primary"] %>
+<div class="btn-block ml-0 mt-2 mb-3">
+  <%= link_to "Create Event as " + @current_user.username, new_user_event_path(@current_user.id), class: ["btn", "btn-primary"] %>
+  <% @moderator.each do |moderator| %>
+    <!--<%= link_to "Create Event as " + Organization.where(id: moderator).pluck(:name)[0] , new_organization_event_path(moderator), class: ["btn", "btn-primary"] %>-->
+    <button type="button" class="btn btn-primary"><%= "Create Event as " + Organization.where(id: moderator).pluck(:name)[0] %></button>
+  <% end %>
 </div>
 
 <div class="row">
