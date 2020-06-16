@@ -11,6 +11,24 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.where(id: params[:id])
+    x = @user.pluck(:id)[0]
+    @invitations = []
+    @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0, event: [privacy: 0])
+
+    orgs = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
+    if orgs.count > 0
+      @events = []
+      for i in orgs
+        for j in Event.where(creator_id: i, privacy: 0)
+          @events << j
+        end
+      end
+      for y in Event.where(creator_id: x, creator_type: "User", privacy: 0)
+        @events << y
+      end
+    else
+      @events = Event.where(creator_id: x, creator_type: "User", privacy: 0)
+    end
   end
 
   # GET /users/new
