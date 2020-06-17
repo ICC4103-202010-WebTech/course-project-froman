@@ -5,4 +5,7 @@ class Event < ApplicationRecord
   has_many :votes, dependent: :destroy
 
   has_one_attached :image
+
+  validates :name, :description, :date, :location, presence: true
+  validates :date, not_in_past: true
 end

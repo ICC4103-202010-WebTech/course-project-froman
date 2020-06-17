@@ -5,5 +5,6 @@ class Organization < ApplicationRecord
 
   has_one_attached :org_image
 
+  validates :name, :description, presence: true
   validates :name, uniqueness: true
 end
