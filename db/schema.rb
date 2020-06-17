@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_223658) do
     t.text "description"
     t.datetime "date"
     t.integer "privacy"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_type", "creator_id"], name: "index_events_on_creator_type_and_creator_id"
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_223658) do
     t.string "email"
     t.text "biography"
     t.integer "mainRole"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

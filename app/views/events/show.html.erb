@@ -34,6 +34,7 @@
         <li><strong>Host:</strong> <%= link_to Organization.where(id: event.creator_id).pluck("name")[0], organization_path(event.creator_id)%> </li>
       <% end %>
       <li><strong>Date:</strong> <%= event.date %></li>
+      <li><strong>Location:</strong> <%= event.location %></li>
       <li><strong>Description:</strong> <%= event.description %></li>
     <% end %>
   </ul>

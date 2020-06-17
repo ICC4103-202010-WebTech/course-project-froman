@@ -5,16 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", mainRole: 0)
-user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love ducks", mainRole: 0)
-user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWoolkie", email: "jbitt639@gmail.com", biography: "I love music", mainRole: 0)
-user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", mainRole: 1)
-user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", mainRole: 0)
-user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", mainRole: 0)
-user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", mainRole: 0)
-user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", mainRole: 0)
-user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", mainRole: 0)
-user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", mainRole: 1)
+user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", mainRole: 0, location: "Place 1")
+user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love ducks", mainRole: 0, location: "Place 2")
+user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWoolkie", email: "jbitt639@gmail.com", biography: "I love music", mainRole: 0, location: "Place 3")
+user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", mainRole: 1, location: "Place 4")
+user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", mainRole: 0, location: "Place 5")
+user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", mainRole: 0, location: "Place 6")
+user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", mainRole: 0, location: "Place 7")
+user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", mainRole: 0, location: "Place 8")
+user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", mainRole: 0, location: "Place 9")
+user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", mainRole: 1, location: "Place 10")
 ###USERS###
 
 ###ORGS###
@@ -56,19 +56,19 @@ orgRole10.save!
 
 ###EVENTS###
 event1 = Event.new(creator: org1, name: "Pikachu Raid",
-                   description: "Capture pikachu", date: "2020-07-15 00:00:00 UTC", privacy: 0)
+                   description: "Capture pikachu", date: "2020-07-15 00:00:00 UTC", privacy: 0, location: "Place A")
 event1.save!
 
 event2 = Event.new(creator: org2, name: "Grand Line Adventure",
-                   description: "Get the One Piece", date: "2020-10-05 00:00:00 UTC", privacy: 0)
+                   description: "Get the One Piece", date: "2020-10-05 00:00:00 UTC", privacy: 0, location: "Place B")
 event2.save!
 
 event3 = Event.new(creator: user3, name: "Dungeons and Dragons",
-                   description: "First sesion", date: "2020-07-05 00:00:00 UTC", privacy: 1)
+                   description: "First sesion", date: "2020-07-05 00:00:00 UTC", privacy: 1, location: "Place C")
 event3.save!
 
 event4 = Event.new(creator: org2, name: "Sniper Training",
-                   description: "To become like the great sogeking", date: "2020-11-07 00:00:00 UTC", privacy: 1)
+                   description: "To become like the great sogeking", date: "2020-11-07 00:00:00 UTC", privacy: 1, location: "Place D")
 event4.save!
 ###EVENTS###
 
