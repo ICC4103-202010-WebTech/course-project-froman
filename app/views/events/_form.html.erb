@@ -38,10 +38,6 @@
       <%= form.label :Event_image %>
       <%= form.file_field :image, class: "form-control-file" %>
     </div>
-    <% if action_name == 'new' %>
-      <%= form.hidden_field :creator, value: @current_user %>
-      <%= form.hidden_field :creator_type, value: "User" %>
-    <% end %>
     <div class="form-group mt-2">
       <%= form.submit submit_btn_text, class: ["btn", "btn-primary"] %>
       <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
