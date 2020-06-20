@@ -17,6 +17,17 @@
             </p>
           <% end %>
         <% end %>
+
+        <!-- button to assist public event
+        <% if !@guests.pluck(:user_id).include? @current_user.id & event.privacy == 0 %>
+          <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-danger">
+              <%= link_to "Assist", {:controller => 'invitations', :action => 'create', :user_id => @current_user.id, :event_id => event, :host => '0'}, {:method => :post} %>
+            </button>
+          </p>
+        <% end %>
+        -->
+
       </h4>
       <% if event.image.attached? == true%>
         <%= image_tag(event.image, width: "400px", background: "#55595c", color: "#eceeef") %>
