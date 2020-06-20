@@ -11,6 +11,9 @@ Run "bundle install"
 Run "rails db:setup" to execute migrations and seeds file.
 
 
+BUG: If event is not created nicely at first try you would need to restart the process
+because of a bad implementations on the forms
+
 --IMPLEMENTED FEATURES--
 
 All points asked for:

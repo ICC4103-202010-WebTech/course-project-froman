@@ -23,19 +23,22 @@ Rails.application.routes.draw do
   end
 
   resources :users, defaults: { format: :html }, shallow: true do  #user has many events and has one org role
-    resources :events, defaults: { format: :html }, shallow: true
+    resources :events, defaults: { format: :html }, shallow: true do
+      resources :invitations, :comments, :votes, defaults: { format: :html }, shallow: true
+    end
     resources :organization_roles, defaults: { format: :html }, shallow: true
   end
   resources :organizations, defaults: { format: :html }, shallow: true do  #orgs has many events and has many org roles
-    resources :events, :organization_roles, defaults: { format: :html }, shallow: true
+    resources :events, defaults: { format: :html }, shallow: true do
+      resources :invitations, :comments, :votes, defaults: { format: :html }, shallow: true
+    end
+    resources :organization_roles, defaults: { format: :html }, shallow: true
   end
   resources :users, defaults: { format: :html }, shallow: true do  #user has many invitations, which are linked to comments and votes
     resources :invitations, defaults: { format: :html }, shallow: true do
       resources :comments, :votes, defaults: { format: :html }, shallow: true
     end
   end
-  resources :events, defaults: { format: :html }, shallow: true do  #event has many invitations, comments and votes
-    resources :invitations, :comments, :votes, defaults: { format: :html }, shallow: true
-  end
+
 end
 

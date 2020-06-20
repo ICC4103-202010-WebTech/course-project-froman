@@ -61,7 +61,7 @@ class InvitationsController < ApplicationController
   def destroy
     @invitation.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Invitation was successfully deleted.' }
+      format.html { redirect_to user_events_path(@current_user.id), notice: 'Invitation was successfully deleted.' }
       format.json { head :no_content }
     end
   end

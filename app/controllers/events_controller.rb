@@ -59,7 +59,7 @@ class EventsController < ApplicationController
           @new_event_creator.save
         end
 
-        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+        format.html { redirect_to user_events_path(@current_user.id), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
