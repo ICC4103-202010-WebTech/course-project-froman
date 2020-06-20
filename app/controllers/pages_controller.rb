@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @events = Event.includes(:invitations).where(invitations: {user_id: @current_user.id}).order(date: :asc)
+    @events = Event.where(privacy: '0').order(date: :asc)
   end
 end
 

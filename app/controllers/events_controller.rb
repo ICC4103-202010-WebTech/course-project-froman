@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    x = @current_user.id
+    x = current_user.id
     @moderator = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
     orgs = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
     if orgs.count > 0

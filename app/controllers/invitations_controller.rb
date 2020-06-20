@@ -4,7 +4,7 @@ class InvitationsController < ApplicationController
   # GET /invitations
   # GET /invitations.json
   def index
-    x = @current_user.id
+    x = current_user.id
     @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0)
   end
 
