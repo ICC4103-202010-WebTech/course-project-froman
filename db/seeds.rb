@@ -5,16 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", mainRole: 0, location: "Place 1")
-user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love ducks", mainRole: 0, location: "Place 2")
-user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWoolkie", email: "jbitt639@gmail.com", biography: "I love music", mainRole: 0, location: "Place 3")
-user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", mainRole: 1, location: "Place 4")
-user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", mainRole: 0, location: "Place 5")
-user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", mainRole: 0, location: "Place 6")
-user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", mainRole: 0, location: "Place 7")
-user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", mainRole: 0, location: "Place 8")
-user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", mainRole: 0, location: "Place 9")
-user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", mainRole: 1, location: "Place 10")
+user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", mainRole: 0, location: "Place 1", password: "g123123")
+user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love ducks", mainRole: 0, location: "Place 2", password: "n123123")
+user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWoolkie", email: "jbitt639@gmail.com", biography: "I love music", mainRole: 0, location: "Place 3", password: "j123123")
+user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", mainRole: 1, location: "Place 4", password: "lovelive")
+user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", mainRole: 0, location: "Place 5", password: "v123123")
+user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", mainRole: 0, location: "Place 6", password: "juanpiz")
+user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", mainRole: 0, location: "Place 7", password: "r123123")
+user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", mainRole: 0, location: "Place 8", password: "a123123")
+user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", mainRole: 0, location: "Place 9", password: "t123123")
+user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", mainRole: 1, location: "Place 10", password: "show")
 ###USERS###
 
 ###ORGS###
