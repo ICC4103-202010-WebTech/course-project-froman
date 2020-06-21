@@ -17,7 +17,7 @@ class VotesController < ApplicationController
     @event = Event.find(params[:event_id])
     @vote = Vote.new
     @vote.event = @event
-    @vote.invitation = Invitation.where(event_id: @event.id, user_id: @current_user.id).first
+    @vote.invitation = Invitation.where(event_id: @event.id, user_id: current_user.id).first
   end
 
   # GET /votes/1/edit
@@ -30,7 +30,7 @@ class VotesController < ApplicationController
     @event = Event.find(params[:event_id])
     @vote = Vote.new(vote_params)
     @vote.event = @event
-    @vote.invitation = Invitation.where(event_id: @event.id, user_id: @current_user.id).first
+    @vote.invitation = Invitation.where(event_id: @event.id, user_id: current_user.id).first
 
     respond_to do |format|
       if @vote.save

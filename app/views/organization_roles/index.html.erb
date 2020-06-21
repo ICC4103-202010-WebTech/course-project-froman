@@ -3,7 +3,9 @@
 </div>
 <div class="row ml-0">
   <% if @organization_roles.count == 0 %>
-    <li><strong>No events at the moment!</strong></li>
+    <div class="row ml-0 mt-3">
+      <p>You don't belong to any Organization!</p>
+    </div>
   <% else %>
     <table class="table">
       <thead>

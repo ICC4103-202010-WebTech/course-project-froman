@@ -8,7 +8,7 @@
 <% url = request.path_info %>
 <% if url.include?('user') %>
   <div class="row ml-0">
-    <%= form_with model: [@current_user, @event], local: true do |form| %>
+    <%= form_with model: [current_user, @event], local: true do |form| %>
       <%= errors_for @event %>
       <div class="form-group">
         <%= form.label :name %>
@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
         <%= form.hidden_field :creator_type, value: "User" %>
-        <%= form.hidden_field :creator_id, value: @current_user.id %>
+        <%= form.hidden_field :creator_id, value: current_user.id %>
       </div>
       <div class="form-group">
         <%= form.label :description %>
@@ -40,7 +40,7 @@
       </div>
       <div class="form-group mt-2">
         <%= form.submit "Create", class: ["btn", "btn-primary"] %>
-        <%= link_to "Back", user_events_path(@current_user.id), class: ["btn", "btn-secondary"] %>
+        <%= link_to "Back", user_events_path(current_user.id), class: ["btn", "btn-secondary"] %>
       </div>
     <% end %>
   </div>
@@ -80,7 +80,7 @@
       </div>
       <div class="form-group mt-2">
         <%= form.submit "Create", class: ["btn", "btn-primary"] %>
-        <%= link_to "Back", user_events_path(@current_user.id), class: ["btn", "btn-secondary"] %>
+        <%= link_to "Back", user_events_path(current_user.id), class: ["btn", "btn-secondary"] %>
       </div>
     <% end %>
   </div>

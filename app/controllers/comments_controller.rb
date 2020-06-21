@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = Comment.new
     @comment.event = @event
-    @comment.invitation = Invitation.where(user: @current_user.id, event: Event.find(params[:event_id])).first
+    @comment.invitation = Invitation.where(user: current_user.id, event: Event.find(params[:event_id])).first
   end
 
   # GET /comments/1/edit
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = Comment.new(comment_params)
     @comment.event = @event
-    @comment.invitation = Invitation.where(user: @current_user.id, event: Event.find(params[:event_id])).first
+    @comment.invitation = Invitation.where(user: current_user.id, event: Event.find(params[:event_id])).first
 
     respond_to do |format|
       if @comment.save

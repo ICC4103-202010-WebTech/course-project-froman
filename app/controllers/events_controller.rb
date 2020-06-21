@@ -52,14 +52,14 @@ class EventsController < ApplicationController
       if @event.save
 
         @new_event_creator = Invitation.new
-        @new_event_creator.user = @current_user
+        @new_event_creator.user = current_user
         @new_event_creator.event = @event
         @new_event_creator.host = 1
         if  @new_event_creator.errors.blank?
           @new_event_creator.save
         end
 
-        format.html { redirect_to user_events_path(@current_user.id), notice: 'Event was successfully created.' }
+        format.html { redirect_to user_events_path(current_user.id), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -87,7 +87,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to user_events_path(@current_user.id), notice: 'Event was successfully deleted.' }
+      format.html { redirect_to user_events_path(current_user.id), notice: 'Event was successfully deleted.' }
       format.json { head :no_content }
     end
   end

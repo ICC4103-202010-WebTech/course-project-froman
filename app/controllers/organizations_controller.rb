@@ -34,7 +34,7 @@ class OrganizationsController < ApplicationController
     respond_to do |format|
       if @organization.save
         @new_organization_admin = OrganizationRole.new
-        @new_organization_admin.user = @current_user
+        @new_organization_admin.user = current_user
         @new_organization_admin.organization = @organization
         @new_organization_admin.role = 1
         if @new_organization_admin.errors.blank?
