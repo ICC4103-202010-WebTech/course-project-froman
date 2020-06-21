@@ -2,23 +2,23 @@
   <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
       <h4 class="card-title"><%= event.name %>
-        <% if event.creator_type == "User" %>
-          <% if @current_user.id == event.creator_id %>
-            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
-            <p class="float-right">
-              <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
-            </p>
+        <% if user_signed_in? %>
+          <% if event.creator_type == "User" %>
+            <% if @current_user.id == event.creator_id %>
+              <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
+              <p class="float-right">
+                <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
+              </p>
+            <% end %>
+          <% elsif event.creator_type == "Organization" %>
+            <% if OrganizationRole.where(user_id: @current_user.id, organization_id: event.creator_id).pluck("role") == [1] %>
+              <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
+              <p class="float-right">
+                <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
+              </p>
+            <% end %>
           <% end %>
-        <% elsif event.creator_type == "Organization" %>
-          <% if OrganizationRole.where(user_id: @current_user.id, organization_id: event.creator_id).pluck("role") == [1] %>
-            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
-            <p class="float-right">
-              <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
-            </p>
-          <% end %>
-        <% end %>
-
-        <!-- button to assist public event
+          <!-- button to assist public event
         <% if !@guests.pluck(:user_id).include? @current_user.id & event.privacy == 0 %>
           <p class="float-right">
             <button type="button" class="btn btn-sm btn-outline-danger">
@@ -27,7 +27,7 @@
           </p>
         <% end %>
         -->
-
+        <% end %>
       </h4>
       <% if event.image.attached? == true%>
         <%= image_tag(event.image, width: "400px", background: "#55595c", color: "#eceeef") %>
@@ -68,29 +68,33 @@
         <td><%= link_to User.find(guest.user_id).username, user_path(guest.user_id) %></td>
         <td><%= User.find(guest.user_id).name %> <%= User.find(guest.user_id).lastName %></td>
 
-        <% if @event[0].creator_type == "User" %>
-          <% if @current_user.id == @event[0].creator_id and guest.user_id != @current_user.id  %>
-            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
-          <% end %>
-        <% elsif @event[0].creator_type == "Organization" %>
-          <% if OrganizationRole.where(user_id: @current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] and guest.user_id != @current_user.id %>
-            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+        <% if user_signed_in? %>
+          <% if @event[0].creator_type == "User" %>
+            <% if @current_user.id == @event[0].creator_id and guest.user_id != @current_user.id  %>
+              <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+            <% end %>
+          <% elsif @event[0].creator_type == "Organization" %>
+            <% if OrganizationRole.where(user_id: @current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] and guest.user_id != @current_user.id %>
+              <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+            <% end %>
           <% end %>
         <% end %>
       </tr>
     <% end %>
 
-    <div class="row ml-0 mt-2 mb-3">
-      <% if @event[0].creator_type == "User" %>
-        <% if @current_user.id == @event[0].creator_id %>
-          <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+    <% if user_signed_in? %>
+      <div class="row ml-0 mt-2 mb-3">
+        <% if @event[0].creator_type == "User" %>
+          <% if @current_user.id == @event[0].creator_id %>
+            <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+          <% end %>
+        <% elsif @event[0].creator_type == "Organization" %>
+          <% if OrganizationRole.where(user_id: @current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] %>
+            <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+          <% end %>
         <% end %>
-      <% elsif @event[0].creator_type == "Organization" %>
-        <% if OrganizationRole.where(user_id: @current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] %>
-          <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
-        <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     </tbody>
   </table>
 </div>
@@ -99,9 +103,23 @@
 <h4>Poll Section</h4>
 <div class="card" style="width: 24rem;">
   <% if @votes_title.count == 0 %>
-    <div class="row ml-0 ">
-      <%= link_to "Create Poll", new_event_vote_path(@event[0].id) , class: ["btn", "btn-primary"] %>
-    </div>
+
+    <% if user_signed_in? %>
+      <% if @event[0].creator_type == "User" %>
+        <% if @current_user.id == event.creator_id %>
+          <div class="row ml-0 ">
+            <%= link_to "Create Poll", new_event_vote_path(@event[0].id) , class: ["btn", "btn-primary"] %>
+          </div>
+        <% end %>
+      <% elsif @event[0].creator_type == "Organization" %>
+        <% if OrganizationRole.where(user_id: @current_user.id, organization_id: event.creator_id).pluck("role") == [1] %>
+          <div class="row ml-0 ">
+            <%= link_to "Create Poll", new_event_vote_path(@event[0].id) , class: ["btn", "btn-primary"] %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
   <% else %>
     <h5 class="card-title"><% @votes_title.each_with_index do |votes_title| %>
         <tr>
@@ -113,15 +131,17 @@
       <strong>(1)</strong><span class="pull-right"> <%= @votes.where(vote: 1).count %></span><br>
       <strong>(2)</strong><span class="pull-right"> <%= @votes.where(vote: 2).count %></span>
       <br><br>
-      <p>
-        <% @guests.each_with_index do |guest| %>
-          <% if guest.user_id == @current_user.id %>
-            <% if @votes.pluck("invitation_id").exclude? guest.id %>
-              <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Vote", new_event_vote_path(@event[0].id) %></button>
+      <% if user_signed_in? %>
+        <p>
+          <% @guests.each_with_index do |guest| %>
+            <% if guest.user_id == @current_user.id %>
+              <% if @votes.pluck("invitation_id").exclude? guest.id %>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Vote", new_event_vote_path(@event[0].id) %></button>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </p>
+        </p>
+      <% end %>
     </div>
   <% end %>
 </div>
@@ -135,9 +155,11 @@
         <span class="comment"></span>
         <h4 class="panel-title">Recent Comments</h4>
       </div>
-      <div class="row ml-0 mt-2 mb-3">
-        <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="row ml-0 mt-2 mb-3">
+          <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
+        </div>
+      <% end %>
       <div class="panel-body">
         <ul class="list-group">
           <% @comments.each_with_index do |comment| %>
@@ -147,11 +169,13 @@
                   <div class="col-xs-10 col-md-12">
                     <div>
                       <%= link_to comment.username, user_path(comment.id) %>
+                      <% if user_signed_in? %>
                         <% if comment.id == @current_user.id %>
                           <p class="float-right">
                             <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
                           </p>
                         <% end %>
+                      <% end %>
                     </div>
                     <div class="col-xs-10 col-md-12">
                       <%= comment.content %>

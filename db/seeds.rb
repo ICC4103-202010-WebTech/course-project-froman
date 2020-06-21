@@ -14,7 +14,7 @@ user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", em
 user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", mainRole: 0, location: "Place 7", password: "r123123")
 user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", mainRole: 0, location: "Place 8", password: "a123123")
 user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", mainRole: 0, location: "Place 9", password: "t123123")
-user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", mainRole: 1, location: "Place 10", password: "show")
+user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", mainRole: 1, location: "Place 10", password: "show123")
 ###USERS###
 
 ###ORGS###
