@@ -3,12 +3,12 @@
     <% @organization.each_with_index do |organization| %>
       <h4 class="card-title"><%= organization.name %>
         <% if user_signed_in? %>
-          <% if OrganizationRole.where(user_id: @current_user.id, organization_id: organization).pluck("role") == [1] %>
+          <% if OrganizationRole.where(user_id: current_user.id, organization_id: organization).pluck("role") == [1] %>
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization.id) %></button>
             <p class="float-right">
               <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
             </p>
-          <% elsif OrganizationRole.where(user_id: @current_user.id, organization_id: organization).count == 0 %>
+          <% elsif OrganizationRole.where(user_id: current_user.id, organization_id: organization).count == 0 %>
             <p class="float-right">
               <%= link_to "Join", new_organization_organization_role_path(@organization[0].id), class: ["btn", "btn-sm btn-outline-secondary"] %>
             </p>
@@ -65,9 +65,9 @@
         <td><%= link_to member.user.username, user_path(member.user.id) %></td>
         <td><% if member.role == 0 %> Normal <% else %> Moderator <% end %></td>
         <% if user_signed_in? %>
-          <% if @current_user.id == @admin.user.id and member.user.id != @current_user.id %>
+          <% if current_user.id == @admin.user.id and member.user.id != current_user.id %>
             <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Remove", member, method: :delete, remote: true%></button></td>
-          <% elsif @current_user.id != @admin.user.id and member.user.id == @current_user.id %>
+          <% elsif current_user.id != @admin.user.id and member.user.id == current_user.id %>
             <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Leave", member, method: :delete, remote: true%></button></td>
           <% end %>
         <% end %>
