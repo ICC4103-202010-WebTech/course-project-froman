@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_06_20_223431) do
     t.string "lastName"
     t.string "username"
     t.text "biography"
-    t.integer "mainRole"
     t.string "location"
     t.string "password"
     t.datetime "created_at", precision: 6, null: false

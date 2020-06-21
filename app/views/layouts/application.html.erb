@@ -52,7 +52,6 @@
         <% else %> <%= image_tag(src="http://placehold.it/80", width: "150px", background: "#55595c", color: "#eceeef") %> <% end %>
 
         <td><strong>Name:</strong> <%= current_user.name %> <%= current_user.lastName %></td><br>
-        <td><strong>Role:</strong> <% if current_user.mainRole == 0 %> Common <% else %> Administrator <% end %></td><br>
         <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(current_user.id) %></button></td>
         <% end %>
       </aside>
@@ -72,10 +71,11 @@
     </div>
   </div>
 
-  <footer class="text-muted">
+  <footer class="footer">
     <div class="container">
       <p class="float-right">
-        <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back to top', :back %></button>
+        <a href="#">Back to top</a>
+      </p>
     </div>
   </footer>
 
