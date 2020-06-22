@@ -28,6 +28,12 @@
         <% end %>
         -->
         <% end %>
+
+        <% if admin_signed_in? %>
+          <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
+          </p>
+        <% end %>
       </h4>
       <% if event.image.attached? == true%>
         <%= image_tag(event.image, width: "400px", background: "#55595c", color: "#eceeef") %>
@@ -175,6 +181,12 @@
                             <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
                           </p>
                         <% end %>
+                      <% end %>
+
+                      <% if admin_signed_in? %>
+                        <p class="float-right">
+                          <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
+                        </p>
                       <% end %>
                     </div>
                     <div class="col-xs-10 col-md-12">

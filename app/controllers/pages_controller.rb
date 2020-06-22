@@ -14,6 +14,12 @@ class PagesController < ApplicationController
       end
     end
 
+    if admin_signed_in?
+      for j in Event.where(privacy: 1).order(date: :asc)
+        @events << j
+      end
+    end
+
   end
 end
 

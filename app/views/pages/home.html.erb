@@ -1,8 +1,12 @@
 <div class="row ml-0 mt-3">
-  <h4>Upcoming Events</h4>
+  <% if admin_signed_in? %>
+    <h4>Events</h4>
+  <% else %>
+    <h4>Upcoming Events</h4>
+  <% end %>
 </div>
 
-<div class="row">
+<div class="row ml-0 mt-3">
   <% if @events.count == 0 %>
     <div class="row ml-0 ">
       No upcoming events!
@@ -32,6 +36,10 @@
                       <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
                     <% end %>
                   <% end %>
+                <% end %>
+
+                <% if admin_signed_in? %>
+                  <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
                 <% end %>
               </div>
               <% if event.date != nil %>
