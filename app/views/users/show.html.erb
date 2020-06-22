@@ -25,6 +25,7 @@
       <li><strong>Biography:</strong> <%= user.biography %></li>
       <li><strong>Location:</strong> <%= user.location %></li>
     <% end %>
+    <strong>Last access:</strong> <%=  %>
   </ul>
 </div>
 
@@ -60,6 +61,34 @@
       <% end %>
     <% end %>
   </ul>
+</div>
+
+<div class="row ml-0 mt-3">
+  <h5>Organization Roles</h5>
+</div>
+<div class="row ml-0">
+  <% if @organization_roles.count == 0 %>
+    <div class="row ml-0 mt-3">
+      <p><%= current_user.username %> doesn't belong to any Organization!</p>
+    </div>
+  <% else %>
+    <div class="row ml-0 mt-3">
+      <table class="table">
+        <thead>
+        <th scope="col">Organization</th>
+        <th scope="col">Role</th>
+        </thead>
+        <tbody>
+        <% @organization_roles.each_with_index do |organization_role| %>
+          <tr>
+            <td><%= link_to organization_role.organization.name, organization_path(organization_role.organization_id) %></td>
+            <td><% if organization_role.role == 0%> Normal <% else %> Moderator <% end %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>
 
 <br>

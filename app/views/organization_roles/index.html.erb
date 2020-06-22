@@ -7,24 +7,26 @@
       <p>You don't belong to any Organization!</p>
     </div>
   <% else %>
-    <table class="table">
-      <thead>
-      <th scope="col">N</th>
-      <th scope="col">Organization</th>
-      <th scope="col">User</th>
-      <th scope="col">Role</th>
-      </thead>
-      <tbody>
-      <% @organization_roles.each_with_index do |organization_role, i| %>
-        <tr>
-          <td><%= i+1 %></td>
-          <td><%= link_to organization_role.organization.name, organization_path(organization_role.organization_id) %></td>
-          <td><%= link_to organization_role.user.username, user_path(organization_role.user_id) %></td>
-          <td><% if organization_role.role == 0%> Normal <% else %> Moderator <% end %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <div class="row ml-0 mt-3">
+      <table class="table">
+        <thead>
+        <th scope="col">N</th>
+        <th scope="col">Organization</th>
+        <th scope="col">User</th>
+        <th scope="col">Role</th>
+        </thead>
+        <tbody>
+        <% @organization_roles.each_with_index do |organization_role, i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= link_to organization_role.organization.name, organization_path(organization_role.organization_id) %></td>
+            <td><%= link_to organization_role.user.username, user_path(organization_role.user_id) %></td>
+            <td><% if organization_role.role == 0%> Normal <% else %> Moderator <% end %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
 </div>
 
