@@ -2,11 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/admins/confirmations/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/mailer/confirmation_instructions.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/mailer/email_changed.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/mailer/password_change.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/mailer/reset_password_instructions.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/mailer/unlock_instructions.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/passwords/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/passwords/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/registrations/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/registrations/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/sessions/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/shared/_error_messages.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/shared/_links.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admins/unlocks/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200419205834_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200419205834_create_users.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,12 +53,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab12-FelRom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/admins" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/admins" />
       <recent name="$PROJECT_DIR$/app/controllers" />
       <recent name="$PROJECT_DIR$/app/views/api/v1" />
       <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
@@ -199,7 +213,7 @@
       <workItem from="1592694563039" duration="371000" />
       <workItem from="1592695030885" duration="102000" />
       <workItem from="1592695166911" duration="966000" />
-      <workItem from="1592769148392" duration="19610000" />
+      <workItem from="1592769148392" duration="22233000" />
     </task>
     <servers />
   </component>
@@ -233,7 +247,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/config/routes.rb</url>
-          <line>27</line>
+          <line>28</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>

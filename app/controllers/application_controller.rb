@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def current_customer
     if current_user
       current_user
+    elsif current_admin
+      current_admin
     else
       User.new
     end
