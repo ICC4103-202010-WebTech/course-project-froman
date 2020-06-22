@@ -10,6 +10,12 @@
             </p>
           <% end %>
         <% end %>
+
+        <% if admin_signed_in? %>
+          <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", user, method: :delete, remote: true %></button>
+          </p>
+        <% end %>
       </h3>
       <% if user.profile_image.attached? == true%>
         <%= image_tag(user.profile_image, width: "250px", background: "#55595c", color: "#eceeef") %>
@@ -25,10 +31,12 @@
       <li><strong>Biography:</strong> <%= user.biography %></li>
       <li><strong>Location:</strong> <%= user.location %></li>
 
-      <% if user.lastAccess == nil %> <!--JUST FOR ADMINS-->
-        <li><strong>Last access: </strong>Never!</li>
-      <% else %>
-        <li><strong>Last access:</strong> <%= user.lastAccess %></li>
+      <% if admin_signed_in? %>
+        <% if user.lastAccess == nil %>
+          <li><strong>Last access: </strong>Never!</li>
+        <% else %>
+          <li><strong>Last access:</strong> <%= user.lastAccess %></li>
+        <% end %>
       <% end %>
     <% end %>
   </ul>
@@ -68,33 +76,36 @@
   </ul>
 </div>
 
-<div class="row ml-0 mt-3"> <!--JUST FOR ADMINS-->
-  <h5>Organization Roles</h5>
-</div>
-<div class="row ml-0">
-  <% if @organization_roles.count == 0 %>
-    <div class="row ml-0 mt-3">
-      <p><%= current_user.username %> doesn't belong to any Organization!</p>
-    </div>
-  <% else %>
-    <div class="row ml-0 mt-3">
-      <table class="table">
-        <thead>
-        <th scope="col">Organization</th>
-        <th scope="col">Role</th>
-        </thead>
-        <tbody>
-        <% @organization_roles.each_with_index do |organization_role| %>
-          <tr>
-            <td><%= link_to organization_role.organization.name, organization_path(organization_role.organization_id) %></td>
-            <td><% if organization_role.role == 0%> Normal <% else %> Moderator <% end %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-</div>
+<% if admin_signed_in? %>
+  <div class="row ml-0 mt-3">
+    <h5>Organization Roles</h5>
+  </div>
+  <div class="row ml-0">
+    <% @organization_roles = OrganizationRole.includes(:user, :organization).where(user_id: @user[0].id) %>
+    <% if @organization_roles.count == 0 %>
+      <div class="row ml-0 mt-3">
+        <p><%= @user[0].username %> doesn't belong to any Organization!</p>
+      </div>
+    <% else %>
+      <div class="row ml-0 mt-3">
+        <table class="table">
+          <thead>
+          <th scope="col">Organization</th>
+          <th scope="col">Role</th>
+          </thead>
+          <tbody>
+          <% @organization_roles.each_with_index do |organization_role| %>
+            <tr>
+              <td><%= link_to organization_role.organization.name, organization_path(organization_role.organization_id) %></td>
+              <td><% if organization_role.role == 0%> Normal <% else %> Moderator <% end %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 <br>
 <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', :back %></button>

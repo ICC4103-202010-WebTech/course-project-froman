@@ -8,9 +8,9 @@
   </div>
 <% end %>
 
-<div class="row">
+<div class="row ml-0 mt-3">
   <% if @organizations.count == 0 %>
-    <div class="row ml-0 ">
+    <div class="row ml-0">
       No organizations at the moment!
     </div>
   <% else %>
@@ -27,6 +27,9 @@
                     <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization) %></button>
                     <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
                   <% end %>
+                <% end %>
+                <% if admin_signed_in? %>
+                  <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
                 <% end %>
               </div>
             </div>

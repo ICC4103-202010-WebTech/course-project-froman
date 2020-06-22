@@ -30,8 +30,6 @@ class UsersController < ApplicationController
       @events = Event.where(creator_id: x, creator_type: "User", privacy: 0)
     end
 
-    @organization_roles = OrganizationRole.includes(:user, :organization).where(user_id: current_user.id)
-
   end
 
   # GET /users/new

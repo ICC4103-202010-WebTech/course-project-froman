@@ -14,6 +14,11 @@
             </p>
           <% end %>
         <% end %>
+        <% if admin_signed_in? %>
+          <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
+          </p>
+        <% end %>
       </h4>
       <% if organization.org_image.attached? == true%>
         <%= image_tag(organization.org_image, width: "400px", background: "#55595c", color: "#eceeef") %>
