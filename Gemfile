@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Add devise for user authentication, registration, etc.
 gem 'devise', '~> 4.7'
 
+# Add CanCanCan for user authorization
+gem 'cancancan', '~> 3.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

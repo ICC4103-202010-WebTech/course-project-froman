@@ -1,5 +1,6 @@
 class OrganizationRolesController < ApplicationController
   before_action :set_organization_role, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /organization_roles
   # GET /organization_roles.json
