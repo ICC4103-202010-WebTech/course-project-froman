@@ -24,8 +24,13 @@
       <li><strong>Mail:</strong> <%= user.email %></li>
       <li><strong>Biography:</strong> <%= user.biography %></li>
       <li><strong>Location:</strong> <%= user.location %></li>
+
+      <% if user.lastAccess == nil %> <!--JUST FOR ADMINS-->
+        <li><strong>Last access: </strong>Never!</li>
+      <% else %>
+        <li><strong>Last access:</strong> <%= user.lastAccess %></li>
+      <% end %>
     <% end %>
-    <strong>Last access:</strong> <%=  %>
   </ul>
 </div>
 
@@ -63,7 +68,7 @@
   </ul>
 </div>
 
-<div class="row ml-0 mt-3">
+<div class="row ml-0 mt-3"> <!--JUST FOR ADMINS-->
   <h5>Organization Roles</h5>
 </div>
 <div class="row ml-0">

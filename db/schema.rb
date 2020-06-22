@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_223431) do
     t.text "biography"
     t.string "location"
     t.string "password"
+    t.datetime "lastAccess"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
