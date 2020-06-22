@@ -60,50 +60,52 @@
 <div class="row ml-0 mt-3">
   <h4>Guest List</h4>
 </div>
-<div class="row ml-0">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @guests.each_with_index do |guest| %>
+<% if user_signed_in? %>
+  <div class="row ml-0 mt-3">
+    <% if @event[0].creator_type == "User" %>
+      <% if current_user.id == @event[0].creator_id %>
+        <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+      <% end %>
+    <% elsif @event[0].creator_type == "Organization" %>
+      <% if OrganizationRole.where(user_id: current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] %>
+        <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<div class="row ml-0 mt-3">
+  <div class="row ml-0">
+    <table class="table">
+      <thead>
       <tr>
-        <td><%= link_to User.find(guest.user_id).username, user_path(guest.user_id) %></td>
-        <td><%= User.find(guest.user_id).name %> <%= User.find(guest.user_id).lastName %></td>
-
-        <% if user_signed_in? %>
-          <% if @event[0].creator_type == "User" %>
-            <% if current_user.id == @event[0].creator_id and guest.user_id != current_user.id  %>
-              <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
-            <% end %>
-          <% elsif @event[0].creator_type == "Organization" %>
-            <% if OrganizationRole.where(user_id: current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] and guest.user_id != current_user.id %>
-              <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
-            <% end %>
-          <% end %>
-        <% end %>
+        <th scope="col">Username</th>
+        <th scope="col">Name</th>
       </tr>
-    <% end %>
+      </thead>
+      <tbody>
+      <% @guests.each_with_index do |guest| %>
+        <tr>
+          <td><%= link_to User.find(guest.user_id).username, user_path(guest.user_id) %></td>
+          <td><%= User.find(guest.user_id).name %> <%= User.find(guest.user_id).lastName %></td>
 
-    <% if user_signed_in? %>
-      <div class="row ml-0 mt-2 mb-3">
-        <% if @event[0].creator_type == "User" %>
-          <% if current_user.id == @event[0].creator_id %>
-            <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
+          <% if user_signed_in? %>
+            <% if @event[0].creator_type == "User" %>
+              <% if current_user.id == @event[0].creator_id and guest.user_id != current_user.id  %>
+                <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+              <% end %>
+            <% elsif @event[0].creator_type == "Organization" %>
+              <% if OrganizationRole.where(user_id: current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] and guest.user_id != current_user.id %>
+                <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+              <% end %>
+            <% end %>
           <% end %>
-        <% elsif @event[0].creator_type == "Organization" %>
-          <% if OrganizationRole.where(user_id: current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] %>
-            <%= link_to 'Invite', new_event_invitation_path(@event[0].id), class: ["btn", "btn-primary"] %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-    </tbody>
-  </table>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
+
 
 <br>
 <h4>Poll Section</h4>
@@ -154,51 +156,49 @@
 
 <br>
 
-<div class="container">
-  <div class="row">
-    <div class="panel panel-default widget">
-      <div class="panel-heading">
-        <span class="comment"></span>
-        <h4 class="panel-title">Recent Comments</h4>
+<div class="row ml-0 mt-3">
+  <div class="panel panel-default widget">
+    <div class="panel-heading">
+      <span class="comment"></span>
+      <h4 class="panel-title">Recent Comments</h4>
+    </div>
+    <% if user_signed_in? %>
+      <div class="row ml-0 mt-2 mb-3">
+        <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
       </div>
-      <% if user_signed_in? %>
-        <div class="row ml-0 mt-2 mb-3">
-          <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
-        </div>
-      <% end %>
-      <div class="panel-body">
-        <ul class="list-group">
-          <% @comments.each_with_index do |comment| %>
-            <tr>
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-xs-10 col-md-12">
-                    <div>
-                      <%= link_to comment.username, user_path(comment.id) %>
-                      <% if user_signed_in? %>
-                        <% if comment.id == current_user.id %>
-                          <p class="float-right">
-                            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
-                          </p>
-                        <% end %>
-                      <% end %>
-
-                      <% if admin_signed_in? %>
+    <% end %>
+    <div class="panel-body">
+      <ul class="list-group">
+        <% @comments.each_with_index do |comment| %>
+          <tr>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-10 col-md-12">
+                  <div>
+                    <%= link_to comment.username, user_path(comment.id) %>
+                    <% if user_signed_in? %>
+                      <% if comment.id == current_user.id %>
                         <p class="float-right">
                           <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
                         </p>
                       <% end %>
-                    </div>
-                    <div class="col-xs-10 col-md-12">
-                      <%= comment.content %>
-                    </div>
+                    <% end %>
+
+                    <% if admin_signed_in? %>
+                      <p class="float-right">
+                        <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
+                      </p>
+                    <% end %>
+                  </div>
+                  <div class="col-xs-10 col-md-12">
+                    <%= comment.content %>
                   </div>
                 </div>
-              </li>
-            </tr>
-          <% end %>
-        </ul>
-      </div>
+              </div>
+            </li>
+          </tr>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
