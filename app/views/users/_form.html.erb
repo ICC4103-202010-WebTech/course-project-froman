@@ -10,10 +10,6 @@
       <%= form.text_field :lastName, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :change_password %>
-      <%= form.password_field :password, class: "form-control" %>
-    </div>
-    <div class="form-group">
       <%= form.label :biography %>
       <%= form.text_area :biography, class: "form-control" %>
     </div>
@@ -24,6 +20,10 @@
     <div class="form-group">
       <%= form.label :profile_image %>
       <%= form.file_field :profile_image, class: "form-control-file" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :set_password_to_apply_changes %>
+      <%= form.password_field :password, class: "form-control" %>
     </div>
     <div class="form-group mt-2">
       <%= form.submit submit_btn_text, class: ["btn", "btn-primary"] %>

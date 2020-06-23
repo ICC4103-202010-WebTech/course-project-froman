@@ -50,13 +50,20 @@
       <aside class="col-sm-2" id="user_info">
         <br>
         <% if user_signed_in? %>
-        <h3><%= link_to current_user.username, user_path(current_user.id) %></h3>
-        <% if current_user.profile_image.attached? == true%>
-          <%= image_tag(current_user.profile_image, width: "150px", background: "#55595c", color: "#eceeef") %>
-        <% else %> <%= image_tag(src="http://placehold.it/80", width: "150px", background: "#55595c", color: "#eceeef") %> <% end %>
-
-        <td><strong>Name:</strong> <%= current_user.name %> <%= current_user.lastName %></td><br>
-        <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(current_user.id) %></button></td>
+          <div class="alert alert-primary">
+            <h3><%= link_to current_user.username, user_path(current_user.id) %></h3>
+            <% if current_user.profile_image.attached? == true%>
+              <%= image_tag(current_user.profile_image, width: "150px", background: "#55595c", color: "#eceeef") %>
+            <% else %>
+              <%= image_tag(src="http://placehold.it/80", width: "150px", background: "#55595c", color: "#eceeef") %>
+            <% end %>
+            <td><%= current_user.name %> <%= current_user.lastName %></td><br>
+            <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(current_user.id) %></button></td>
+          </div>
+        <% elsif admin_signed_in? %>
+          <div class="alert alert-primary">
+            <strong>Welcome Administrator!</strong>
+          </div>
         <% end %>
       </aside>
       <main class="col-sm-10" id="main_content">
