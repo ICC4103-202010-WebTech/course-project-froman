@@ -42,5 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :aup_tos, only: [:show]
+
 end
 

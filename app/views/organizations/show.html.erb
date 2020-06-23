@@ -61,7 +61,9 @@
     <tr>
       <th scope="col">Username</th>
       <th scope="col">Role</th>
-      <th scope="col">Action</th>
+      <% if user_signed_in? %>
+        <th scope="col">Action</th>
+      <% end %>
     </tr>
     </thead>
     <tbody>

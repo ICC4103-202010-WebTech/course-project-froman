@@ -5,16 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", location: "Place 1", password: "g123123")
-user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love ducks", location: "Place 2", password: "n123123")
-user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWoolkie", email: "jbitt639@gmail.com", biography: "I love music", location: "Place 3", password: "j123123")
-user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", location: "Place 4", password: "lovelive")
-user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", location: "Place 5", password: "v123123")
-user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", location: "Place 6", password: "juanpiz")
-user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", location: "Place 7", password: "r123123")
-user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", location: "Place 8", password: "a123123")
-user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", location: "Place 9", password: "t123123")
-user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", location: "Place 10", password: "show123")
+user1 = User.create(name: "Gianluca", lastName: "Linzmayer", username: "Gianluc", email: "glinz139@gmail.com", biography: "I love sandwiches", location: "Place 1", password: "g123123", lastAccess: "2020-06-15 02:20:22 UTC")
+user2 = User.create(name: "Benjamin", lastName: "Illesca", username: "NegroSC", email: "bille1543@gmail.com", biography: "I love ducks", location: "Place 2", password: "n123123", lastAccess: "2020-04-15 02:20:22 UTC")
+user3 = User.create(name: "Johann", lastName: "Bittner", username: "FedzWoolkie", email: "jbitt639@gmail.com", biography: "I love music", location: "Place 3", password: "j123123", lastAccess: "2020-06-04 02:20:22 UTC")
+user4 = User.create(name: "Sebastian", lastName: "Rojas", username: "SARB", email: "sarb542@gmail.com", biography: "I love idols", location: "Place 4", password: "lovelive", lastAccess: "2020-06-12 02:20:22 UTC")
+user5 = User.create(name: "Vicente", lastName: "Machuca", username: "Walkure", email: "walkure234@gmail.com", biography: "I love cats", location: "Place 5", password: "v123123", lastAccess: "2020-06-21 02:20:22 UTC")
+user6 = User.create(name: "Cesar", lastName: "Macnamara", username: "Poo123", email: "poo4455@gmail.com", biography: "I love one piece", location: "Place 6", password: "juanpiz", lastAccess: "2020-06-13 02:20:22 UTC")
+user7 = User.create(name: "Raimundo", lastName: "Orellana", username: "Gandalf", email: "rorell34@gmail.com", biography: "I love beer", location: "Place 7", password: "r123123", lastAccess: "2020-06-05 02:20:22 UTC")
+user8 = User.create(name: "Andre", lastName: "Beaujanot", username: "Ondree", email: "ondre1313@gmail.com", biography: "I love cars", location: "Place 8", password: "a123123", lastAccess: "2020-06-17 02:20:22 UTC")
+user9 = User.create(name: "Tomas", lastName: "Correa", username: "McWeta", email: "tomate234@gmail.com", biography: "I love tomatoes", location: "Place 9", password: "t123123", lastAccess: "2020-06-02 02:20:22 UTC")
+user10 = User.create(name: "Alonso", lastName: "Gomez", username: "AlonsinhOp", email: "alons234@gmail.com", biography: "I love trips", location: "Place 10", password: "show123", lastAccess: "2020-05-15 02:20:22 UTC")
 ###USERS###
 
 ###ORGS###
