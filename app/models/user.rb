@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :organizations, through: :organization_roles
 
   has_many :invitations, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   has_one_attached :profile_image
 
