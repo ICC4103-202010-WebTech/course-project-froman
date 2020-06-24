@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @event = Event.find(1)
+    @messages = Message.where(receptor: current_user.id).order('date DESC')
   end
 
   # GET /messages/1
@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @message.user = current_user
   end
 
   # GET /messages/1/edit
@@ -25,10 +26,11 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    @message.user = current_user
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to user_messages_path(current_user.id), notice: 'Message was successfully created.' }
+        format.html { redirect_to user_messages_path(current_user.id), notice: 'Message was successfully sent.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.fetch(:message, {})
+      params.fetch(:message, {}).permit(:id, :user, :content, :date, :receptor)
     end
 end

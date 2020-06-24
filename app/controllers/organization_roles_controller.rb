@@ -18,7 +18,7 @@ class OrganizationRolesController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @organization_role = OrganizationRole.new
     @organization_role.organization = @organization
-    @organization_role.user = @current_user
+    @organization_role.user = current_user
   end
 
   # GET /organization_roles/1/edit

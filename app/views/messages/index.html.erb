@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="row ml-0 mt-3">
+  <h4>Inbox</h4>
+</div>
+<div class="row ml-0 mt-2 mb-3">
+  <%= link_to 'New Message', new_user_message_path(current_user.id), class: ["btn", "btn-primary"] %>
+</div>
+<div class="row ml-0">
+  <% if @messages.count == 0 %>
+    <div class="row ml-0 mt-3">
+      <p>You don't have any messages!</p>
+    </div>
+  <% else %>
+    <div class="row ml-0 mt-3">
+      <table class="table">
+        <thead>
+        <th scope="col">From</th>
+        <th scope="col">Message</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+        </thead>
+        <tbody>
+        <% @messages.each_with_index do |message| %>
+          <tr>
+            <td><%= link_to message.user.username, user_path(message.user.id) %></td>
+            <td><%= message.content %></td>
+            <td><%= message.date %></td>
+            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", message, method: :delete, remote: true%></button></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
 
-wena los cabrossss
-
+<div class="row ml-0 mt-3">
+  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', root_path %></button>
+</div>

@@ -1,5 +1,25 @@
-<h1>New Message</h1>
+<div class="row ml-0 mt-3">
+  <h2>New Message</h2>
+</div>
+<div class="row ml-0">
+  <%= form_with model: [current_user, @message], local: true do |form| %>
+    <%= errors_for @message %>
+    <div class="form-group">
+      <%= form.label :Write_message_to %><br>
+      <%= form.select :receptor, options_for_select(User.where.not(id: current_user.id).pluck(:username, :id))%>
+    </div>
+    <div class="form-group">
+      <%= form.label :message %>
+      <%= form.text_area :content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.hidden_field :date, value: Time.current %>
+      <%= form.hidden_field :transmitter, value: current_user.id %>
+    </div>
 
-<%= render 'form', message: @message %>
-
-<%= link_to 'Back', messages_path %>
+    <div class="form-group mt-2">
+      <%= form.submit "Create", class: ["btn", "btn-primary"] %>
+      <%= link_to "Back", user_messages_path(current_user.id), class: ["btn", "btn-secondary"] %>
+    </div>
+  <% end %>
+</div>

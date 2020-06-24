@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, defaults: { format: :html }, shallow: true do  #user has many events, messages and has one org role
-    resources :messages, defaults: { format: :html }
+    resources :messages, defaults: { format: :html }, shallow: true
     resources :events, defaults: { format: :html }, shallow: true do
       resources :invitations, :comments, :votes, defaults: { format: :html }, shallow: true
     end
