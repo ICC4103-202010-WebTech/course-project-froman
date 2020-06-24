@@ -21,9 +21,9 @@
       <div class="collapse navbar-collapse" id="navbarsExample03">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "Invitations", user_invitations_path(current_user.id), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Created Events", user_events_path(current_user.id), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "My Organizations", user_organization_roles_path(current_user.id), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Created Events", user_events_path(current_user.id), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Invitations", user_invitations_path(current_user.id), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "My Roles", user_organization_roles_path(current_user.id), class: "nav-link" %></li>
           <% end %>
           <li class="nav-item"><%= link_to "All Users", users_url, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "All Organizations", organizations_path, class: "nav-link" %></li>

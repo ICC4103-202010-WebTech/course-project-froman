@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/messages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/messages_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/organization_roles_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_roles_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/message.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/message.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/messages/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/messages/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/messages/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/messages/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200623032339_create_messages.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200623032339_create_messages.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +201,7 @@
       <workItem from="1592769148392" duration="23037000" />
       <workItem from="1592844988169" duration="8763000" />
       <workItem from="1592876846417" duration="6307000" />
-      <workItem from="1592949066635" duration="6776000" />
+      <workItem from="1592949066635" duration="9412000" />
     </task>
     <servers />
   </component>
