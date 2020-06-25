@@ -24,7 +24,7 @@
             <td><%= link_to message.user.username, user_path(message.user.id) %></td>
             <td><%= message.content %></td>
             <td><%= message.date %></td>
-            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", message, method: :delete, remote: true%></button></td>
+            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", message, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button></td>
           </tr>
         <% end %>
         </tbody>

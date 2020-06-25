@@ -6,7 +6,7 @@
           <% if OrganizationRole.where(user_id: current_user.id, organization_id: organization).pluck("role") == [1] %>
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization.id) %></button>
             <p class="float-right">
-              <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
+              <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
             </p>
           <% elsif OrganizationRole.where(user_id: current_user.id, organization_id: organization).count == 0 %>
             <p class="float-right">
@@ -16,7 +16,7 @@
         <% end %>
         <% if admin_signed_in? %>
           <p class="float-right">
-            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, remote: true%></button>
+            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
           </p>
         <% end %>
       </h4>
@@ -73,9 +73,9 @@
         <td><% if member.role == 0 %> Normal <% else %> Moderator <% end %></td>
         <% if user_signed_in? %>
           <% if current_user.id == @admin.user.id and member.user.id != current_user.id %>
-            <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Remove", member, method: :delete, remote: true%></button></td>
+            <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Remove", member, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button></td>
           <% elsif current_user.id != @admin.user.id and member.user.id == current_user.id %>
-            <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Leave", member, method: :delete, remote: true%></button></td>
+            <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Leave", member, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button></td>
           <% end %>
         <% end %>
       </tr>

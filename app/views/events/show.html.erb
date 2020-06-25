@@ -7,14 +7,14 @@
             <% if current_user.id == event.creator_id %>
               <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
               <p class="float-right">
-                <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
+                <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
               </p>
             <% end %>
           <% elsif event.creator_type == "Organization" %>
             <% if OrganizationRole.where(user_id: current_user.id, organization_id: event.creator_id).pluck("role") == [1] %>
               <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
               <p class="float-right">
-                <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
+                <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
               </p>
             <% end %>
           <% end %>
@@ -31,7 +31,7 @@
 
         <% if admin_signed_in? %>
           <p class="float-right">
-            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, remote: true%></button>
+            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
           </p>
         <% end %>
       </h4>
@@ -91,11 +91,11 @@
           <% if user_signed_in? %>
             <% if @event[0].creator_type == "User" %>
               <% if current_user.id == @event[0].creator_id and guest.user_id != current_user.id  %>
-                <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+                <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button></td>
               <% end %>
             <% elsif @event[0].creator_type == "Organization" %>
               <% if OrganizationRole.where(user_id: current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] and guest.user_id != current_user.id %>
-                <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, remote: true%></button></td>
+                <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", guest, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button></td>
               <% end %>
             <% end %>
           <% end %>
@@ -179,14 +179,14 @@
                     <% if user_signed_in? %>
                       <% if comment.id == current_user.id %>
                         <p class="float-right">
-                          <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
+                          <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete, data: {confirm: "Are you sure?"}%></button>
                         </p>
                       <% end %>
                     <% end %>
 
                     <% if admin_signed_in? %>
                       <p class="float-right">
-                        <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete%></button>
+                        <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete, data: {confirm: "Are you sure?"}%></button>
                       </p>
                     <% end %>
                   </div>
