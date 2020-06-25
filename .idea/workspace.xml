@@ -4,7 +4,7 @@
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab12-FelRom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab12-solution" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
@@ -201,7 +201,8 @@
       <workItem from="1592769148392" duration="23037000" />
       <workItem from="1592844988169" duration="8763000" />
       <workItem from="1592876846417" duration="6307000" />
-      <workItem from="1592949066635" duration="9412000" />
+      <workItem from="1592949066635" duration="9530000" />
+      <workItem from="1593120172682" duration="966000" />
     </task>
     <servers />
   </component>
@@ -221,10 +222,10 @@
       <screen x="0" y="0" width="1920" height="926" />
     </state>
     <state x="712" y="202" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.926@0.0.1920.926" timestamp="1590272171989" />
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1592950350869">
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1593120197157">
       <screen x="0" y="0" width="1920" height="926" />
     </state>
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1592950350869" />
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1593120197157" />
     <state x="761" y="383" width="456" height="162" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591297644849">
       <screen x="0" y="0" width="1920" height="926" />
     </state>

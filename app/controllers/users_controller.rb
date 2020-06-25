@@ -13,7 +13,13 @@ class UsersController < ApplicationController
     @user = User.where(id: params[:id])
     x = @user.pluck(:id)[0]
     @invitations = []
-    @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0, event: [privacy: 0])
+    if user_signed_in?
+      if @user[0].id == current_user.id || admin_signed_in?
+        @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0)
+      else
+        @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0, event: [privacy: 0])
+      end
+    end
 
     orgs = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
     if orgs.count > 0
