@@ -1,7 +1,7 @@
 (() => {
     document.addEventListener("turbolinks:load", () => {
         let searchbox = document.querySelector("#search_box");
-        let searchbtn = document.querySelector("#search_users_button");
+        let searchbtn = document.querySelector("#organization_search_button");
         let main = document.querySelector("#main_content");
 
         searchbox.addEventListener("input", (ev) => {
@@ -27,7 +27,7 @@
             }
 
             let keywords = document.querySelector("#search_box").value;
-            fetch(`/search_users?q=${encodeURI(keywords)}`,
+            fetch(`/search_organizations?q=${encodeURI(keywords)}`,
                 { method: 'GET', headers: { 'Content-Type' : 'text/html', 'X-CSRF-Token' : token }})
                 .then((html) => {
                     html.text().then((text) =>{

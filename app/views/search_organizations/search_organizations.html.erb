@@ -1,24 +1,11 @@
 <div class="row ml-0 mt-3">
-  <h4>Organizations</h4>
+  <h2>Search Results</h2>
 </div>
-
-<form class="form-inline mr-3" id="search_form">
-  <input class="form-control mr-sm-2" id="search_box" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" id="organization_search_button" type="submit">Search</button>
-</form>
-
-<% if user_signed_in? %>
-  <div class="row ml-0 mt-2 mb-3">
-    <%= link_to 'New Organization', new_organization_path, class: ["btn", "btn-primary"] %>
+<% if @organizations.length > 0  %>
+  <div class="row ml-0 mt-2">
+    <p><%=@organizations.length %> matches found.</p>
   </div>
-<% end %>
-
-<div class="row ml-0 mt-3">
-  <% if @organizations.count == 0 %>
-    <div class="row ml-0">
-      No organizations at the moment!
-    </div>
-  <% else %>
+  <div class="row ml-0 mt-3">
     <% @organizations.each_with_index do |organization| %>
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
@@ -42,8 +29,12 @@
         </div>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <div class="row ml-0 mt-2">
+    <p>No matches found.</p>
+  </div>
+<% end %>
 
 <div class="row ml-0 mt-3">
   <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', root_path %></button>
