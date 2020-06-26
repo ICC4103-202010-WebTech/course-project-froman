@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ca9426-6d10-4f9b-9984-ccd6bdc9b582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +19,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="ERB File" />
         <option value="Ruby File" />
+        <option value="ERB File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -37,17 +39,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab12-solution" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/layouts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/layouts" />
+      <recent name="$PROJECT_DIR$/app/views/search_users" />
+      <recent name="$PROJECT_DIR$/app/javascript/packs" />
       <recent name="$PROJECT_DIR$/app/views/messages" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
-      <recent name="$PROJECT_DIR$/app/views/admins" />
-      <recent name="$PROJECT_DIR$/app/controllers" />
-      <recent name="$PROJECT_DIR$/app/views/api/v1" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: course-project-froman">
@@ -203,7 +205,7 @@
       <workItem from="1592876846417" duration="6307000" />
       <workItem from="1592949066635" duration="9530000" />
       <workItem from="1593120172682" duration="12462000" />
-      <workItem from="1593184236010" duration="1549000" />
+      <workItem from="1593184236010" duration="6969000" />
     </task>
     <servers />
   </component>
@@ -223,14 +225,14 @@
       <screen x="0" y="0" width="1920" height="926" />
     </state>
     <state x="712" y="202" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.926@0.0.1920.926" timestamp="1590272171989" />
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1593120197157">
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl" timestamp="1593205810346">
       <screen x="0" y="0" width="1920" height="926" />
     </state>
-    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1593120197157" />
-    <state x="625" y="142" width="458" height="616" key="RollbackChangesDialog" timestamp="1593129113153">
+    <state x="743" y="221" width="426" height="486" key="FileChooserDialogImpl/0.0.1920.926@0.0.1920.926" timestamp="1593205810346" />
+    <state x="625" y="142" width="458" height="616" key="RollbackChangesDialog" timestamp="1593205148114">
       <screen x="0" y="0" width="1920" height="926" />
     </state>
-    <state x="625" y="142" width="458" height="616" key="RollbackChangesDialog/0.0.1920.926@0.0.1920.926" timestamp="1593129113153" />
+    <state x="625" y="142" width="458" height="616" key="RollbackChangesDialog/0.0.1920.926@0.0.1920.926" timestamp="1593205148114" />
     <state x="761" y="383" width="456" height="162" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591297644849">
       <screen x="0" y="0" width="1920" height="926" />
     </state>

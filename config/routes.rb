@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   end
 
   resource :aup_tos, only: [:show]
+  match '/search_users', to: "search_users#search", via: [:post, :get]
 
 end
 
