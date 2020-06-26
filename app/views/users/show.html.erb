@@ -31,19 +31,26 @@
       <li><strong>Biography:</strong> <%= user.biography %></li>
       <li><strong>Location:</strong> <%= user.location %></li>
 
+      <% if user.lastAccess == nil %>
+        <li><strong>Last access: </strong>Never!</li>
+      <% else %>
+        <% if user_signed_in? %>
+          <% if current_user == user %>
+            <li><strong>Last access:</strong> Online</li>
+          <% else %>
+            <li><strong>Last access:</strong> <%= user.lastAccess %></li>
+          <% end %>
+        <% else %>
+          <li><strong>Last access:</strong> <%= user.lastAccess %></li>
+        <% end %>
+      <% end %>
+
       <% if user_signed_in? %>
         <% if current_user == user %>
           <li><%= link_to "Change Password", edit_user_registration_path, class: ["btn", "btn-outline-primary"] %></li>
         <% end %>
       <% end %>
 
-      <% if admin_signed_in? %>
-        <% if user.lastAccess == nil %>
-          <li><strong>Last access: </strong>Never!</li>
-        <% else %>
-          <li><strong>Last access:</strong> <%= user.lastAccess %></li>
-        <% end %>
-      <% end %>
     <% end %>
   </ul>
 </div>
