@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, :lastName, :username, :password, :email, presence: true
+  validates :name, :lastName, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validates :email, format:
       { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
