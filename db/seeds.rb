@@ -158,3 +158,35 @@ vote5.save!
 vote6 = Vote.new(event: event4, invitation: invit14, options: "(1) Tomorrow | (2) Next Sunday", vote: 2)
 vote6.save!
 ###VOTES###
+
+###MESSAGES###
+message1 = Message.new(user: user1, receptor: 9, content: "Hi!", date: "2020-05-15 02:20:22 UTC")
+message1.save!
+
+message2 = Message.new(user: user2, receptor: 8, content: "Its over Ondree! I have the high ground.", date: "2020-06-15 02:20:22 UTC")
+message2.save!
+
+message3 = Message.new(user: user3, receptor: 7, content: "Its raining.", date: "2020-05-12 02:20:22 UTC")
+message3.save!
+
+message4 = Message.new(user: user4, receptor: 5, content: "Kan kan! MIKAN", date: "2020-05-24 02:20:22 UTC")
+message4.save!
+
+message5 = Message.new(user: user5, receptor: 6, content: ":3", date: "2020-03-15 02:20:22 UTC")
+message5.save!
+
+message6 = Message.new(user: user6, receptor: 4, content: "Potatoe", date: "2020-02-12 02:20:22 UTC")
+message6.save!
+
+message7 = Message.new(user: user7, receptor: 3, content: "Tomatoe", date: "2020-03-05 02:20:22 UTC")
+message7.save!
+
+message8 = Message.new(user: user8, receptor: 2, content: "Hello there!", date: "2020-05-11 02:20:22 UTC")
+message8.save!
+
+message9 = Message.new(user: user9, receptor: 10, content: "Yay!", date: "2020-04-20 02:20:22 UTC")
+message9.save!
+
+message10 = Message.new(user: user10, receptor: 1, content: "You underestimate my power!", date: "2020-05-15 02:27:22 UTC")
+message10.save!
+###MESSAGES###
