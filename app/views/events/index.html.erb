@@ -2,6 +2,11 @@
   <h4>Created Events</h4>
 </div>
 
+<form class="form-inline mr-3" id="search_form">
+  <input class="form-control mr-sm-2" id="search_box" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" id="search_events_button" type="submit">Search</button>
+</form>
+
 <div class="btn-block ml-0 mt-2 mb-3">
   <%= link_to "Create Event as " + @current_user.username, new_user_event_path(@current_user.id), class: ["btn", "btn-primary"] %>
   <% @moderator.each do |moderator| %>

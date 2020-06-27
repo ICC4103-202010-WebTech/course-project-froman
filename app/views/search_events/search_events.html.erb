@@ -1,22 +1,11 @@
 <div class="row ml-0 mt-3">
-  <% if admin_signed_in? %>
-    <h4>Events</h4>
-  <% else %>
-    <h4>Upcoming Events</h4>
-  <% end %>
+  <h2>Search Results</h2>
 </div>
-
-<form class="form-inline mr-3" id="search_form">
-  <input class="form-control mr-sm-2" id="search_box" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" id="search_events_button" type="submit">Search</button>
-</form>
-
-<div class="row ml-0 mt-3">
-  <% if @events.count == 0 %>
-    <div class="row ml-0 ">
-      No upcoming events!
-    </div>
-  <% else %>
+<% if @events.length > 0  %>
+  <div class="row ml-0 mt-2">
+    <p><%=@events.length %> matches found.</p>
+  </div>
+  <div class="row ml-0 mt-3">
     <% @events.each do |event| %>
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
@@ -55,5 +44,13 @@
         </div>
       </div>
     <% end %>
-  <% end %>
+  </div>
+<% else %>
+  <div class="row ml-0 mt-2">
+    <p>No matches found.</p>
+  </div>
+<% end %>
+
+<div class="row ml-0 mt-3">
+  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Back', root_path %></button>
 </div>
