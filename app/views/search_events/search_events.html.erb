@@ -33,6 +33,7 @@
                 <% end %>
 
                 <% if admin_signed_in? %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
                   <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
                 <% end %>
               </div>

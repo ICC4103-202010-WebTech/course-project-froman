@@ -115,7 +115,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      sign_in :user, @user, bypass: true
+      if user_signed_in?
+        sign_in :user, @user, bypass: true
+      end
       flash[:notice] = 'User was successfully updated.'
       redirect_to @user
     else

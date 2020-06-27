@@ -1,6 +1,6 @@
 <div class="row ml-0 mt-3">
   <% if admin_signed_in? %>
-    <h4>Events</h4>
+    <h4>All Events</h4>
   <% else %>
     <h4>Upcoming Events</h4>
   <% end %>
@@ -44,6 +44,7 @@
                 <% end %>
 
                 <% if admin_signed_in? %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event.id) %></button>
                   <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", event, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
                 <% end %>
               </div>

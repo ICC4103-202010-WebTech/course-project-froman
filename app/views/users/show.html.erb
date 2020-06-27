@@ -13,6 +13,7 @@
 
         <% if admin_signed_in? %>
           <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(@user[0].id) %></button>
             <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", user, method: :delete, remote: true %></button>
           </p>
         <% end %>

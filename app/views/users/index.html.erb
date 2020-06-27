@@ -13,7 +13,7 @@
         <th scope="col">Username</th>
         <th scope="col">Name</th>
         <% if admin_signed_in? %>
-          <th scope="col">Action</th>
+          <th scope="col">Actions</th>
         <% end %>
       </tr>
       </thead>
@@ -23,7 +23,10 @@
           <td><%= link_to user.username, user_path(user.id) %></td>
           <td><%= user.name %> <%= user.lastName %></td>
           <% if admin_signed_in? %>
-            <td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></button></td>
+            <td>
+              <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_user_path(user.id) %></button>
+              <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></button>
+            </td>
           <% end %>
         </tr>
       <% end %>

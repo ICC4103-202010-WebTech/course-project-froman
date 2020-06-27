@@ -16,6 +16,7 @@
         <% end %>
         <% if admin_signed_in? %>
           <p class="float-right">
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization.id) %></button>
             <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", organization, method: :delete, data: {confirm: "Are you sure?"}, remote: true%></button>
           </p>
         <% end %>
