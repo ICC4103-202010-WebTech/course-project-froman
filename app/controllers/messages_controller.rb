@@ -4,7 +4,8 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where(receptor: current_user.id).order('date DESC')
+    @received_messages = Message.where(receptor: current_user.id).order('date DESC')
+    @sent_messages = Message.where(user: current_user).order('date DESC')
   end
 
   # GET /messages/1
