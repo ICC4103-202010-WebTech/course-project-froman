@@ -164,9 +164,13 @@
       <h4 class="panel-title">Recent Comments</h4>
     </div>
     <% if user_signed_in? %>
-      <div class="row ml-0 mt-2 mb-3">
-        <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
-      </div>
+      <% @guests.each_with_index do |guest| %>
+        <% if guest.user_id == current_user.id %>
+          <div class="row ml-0 mt-2 mb-3">
+            <%= link_to "Add Comment", new_event_comment_path(@event[0].id) , class: ["btn", "btn-primary"] %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
     <div class="panel-body">
       <ul class="list-group">
