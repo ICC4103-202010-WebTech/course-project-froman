@@ -180,8 +180,21 @@
                     <% if user_signed_in? %>
                       <% if comment.id == current_user.id %>
                         <p class="float-right">
+                          <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Edit", edit_comment_path(comment.comment_id) %></button>
                           <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete, data: {confirm: "Are you sure?"}%></button>
                         </p>
+                      <% elsif @event[0].creator_type == "User" %>
+                        <% if current_user.id == @event[0].creator_id %>
+                          <p class="float-right">
+                            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete, data: {confirm: "Are you sure?"}%></button>
+                          </p>
+                        <% end %>
+                      <% elsif @event[0].creator_type == "Organization" %>
+                        <% if OrganizationRole.where(user_id: current_user.id, organization_id: @event[0].creator_id).pluck("role") == [1] %>
+                          <p class="float-right">
+                            <button type="button" class="btn btn-sm btn-outline-danger"><%= link_to "Delete", Comment.find(comment.comment_id), method: :delete, data: {confirm: "Are you sure?"}%></button>
+                          </p>
+                        <% end %>
                       <% end %>
                     <% end %>
 
