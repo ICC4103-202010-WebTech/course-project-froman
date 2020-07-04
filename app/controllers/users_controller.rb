@@ -17,12 +17,22 @@ class UsersController < ApplicationController
       if @user[0].id == current_user.id
         @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0)
       else
-        @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0, event: [privacy: 0])
+        @inv = Invitation.includes(:user, :event).where(user_id: x, host: 0)
+        for j in @inv
+          if j.event.privacy == 0
+            @invitations << j
+          end
+        end
       end
     elsif admin_signed_in?
       @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0)
     else
-      @invitations = Invitation.includes(:user, :event).where(user_id: x, host: 0, event: [privacy: 0])
+      @inv = Invitation.includes(:user, :event).where(user_id: x, host: 0)
+      for j in @inv
+        if j.event.privacy == 0
+          @invitations << j
+        end
+      end
     end
 
     orgs = OrganizationRole.where(user_id: x, role: 1).pluck("organization_id")
