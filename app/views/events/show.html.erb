@@ -46,6 +46,7 @@
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
     <% @event.each_with_index do |event| %>
+      <li><strong>Creation Date:</strong> <%= event.creation_date %></li>
       <% if event.creator_type == "User" %>
         <li><strong>Host:</strong> <%= link_to User.where(id: event.creator_id).pluck("username")[0], user_path(event.creator_id) %></li>
       <% else %>
@@ -110,7 +111,7 @@
 
 <br>
 <h4>Poll Section</h4>
-<div class="card" style="width: 24rem;">
+<div class="card" style="width: 30rem;">
   <% if @votes_title.count == 0 %>
 
     <% if user_signed_in? %>

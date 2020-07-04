@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_032339) do
     t.datetime "date"
     t.integer "privacy"
     t.string "location"
+    t.datetime "creation_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_type", "creator_id"], name: "index_events_on_creator_type_and_creator_id"

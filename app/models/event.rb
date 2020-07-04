@@ -6,6 +6,6 @@ class Event < ApplicationRecord
 
   has_one_attached :image
 
-  validates :name, :description, :date, :location, presence: true
+  validates :name, :description, :date, :location, :creation_date, presence: true
   validates :date, not_in_past: true
 end

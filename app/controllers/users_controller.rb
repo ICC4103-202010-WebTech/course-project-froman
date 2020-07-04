@@ -128,6 +128,13 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @messages = Message.all
+    for j in @messages
+      if j.receptor == @user.id
+        j.destroy
+      end
+    end
+
     destroy_user_session_path
     @user.destroy
     respond_to do |format|
